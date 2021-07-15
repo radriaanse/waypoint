@@ -1,10 +1,9 @@
-import * as jspb from 'google-protobuf'
+import * as jspb from 'google-protobuf';
 
 import * as google_protobuf_any_pb from 'google-protobuf/google/protobuf/any_pb';
 import * as google_protobuf_empty_pb from 'google-protobuf/google/protobuf/empty_pb';
 import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
 import * as google_rpc_status_pb from 'api-common-protos/google/rpc/status_pb';
-
 
 export class GetVersionInfoResponse extends jspb.Message {
   getInfo(): VersionInfo | undefined;
@@ -17,13 +16,16 @@ export class GetVersionInfoResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetVersionInfoResponse): GetVersionInfoResponse.AsObject;
   static serializeBinaryToWriter(message: GetVersionInfoResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetVersionInfoResponse;
-  static deserializeBinaryFromReader(message: GetVersionInfoResponse, reader: jspb.BinaryReader): GetVersionInfoResponse;
+  static deserializeBinaryFromReader(
+    message: GetVersionInfoResponse,
+    reader: jspb.BinaryReader
+  ): GetVersionInfoResponse;
 }
 
 export namespace GetVersionInfoResponse {
   export type AsObject = {
-    info?: VersionInfo.AsObject,
-  }
+    info?: VersionInfo.AsObject;
+  };
 }
 
 export class VersionInfo extends jspb.Message {
@@ -50,10 +52,10 @@ export class VersionInfo extends jspb.Message {
 
 export namespace VersionInfo {
   export type AsObject = {
-    api?: VersionInfo.ProtocolVersion.AsObject,
-    entrypoint?: VersionInfo.ProtocolVersion.AsObject,
-    version: string,
-  }
+    api?: VersionInfo.ProtocolVersion.AsObject;
+    entrypoint?: VersionInfo.ProtocolVersion.AsObject;
+    version: string;
+  };
 
   export class ProtocolVersion extends jspb.Message {
     getCurrent(): number;
@@ -72,11 +74,10 @@ export namespace VersionInfo {
 
   export namespace ProtocolVersion {
     export type AsObject = {
-      current: number,
-      minimum: number,
-    }
+      current: number;
+      minimum: number;
+    };
   }
-
 }
 
 export class Application extends jspb.Message {
@@ -101,10 +102,10 @@ export class Application extends jspb.Message {
 
 export namespace Application {
   export type AsObject = {
-    project?: Ref.Project.AsObject,
-    name: string,
-    fileChangeSignal: string,
-  }
+    project?: Ref.Project.AsObject;
+    name: string;
+    fileChangeSignal: string;
+  };
 }
 
 export class Variable extends jspb.Message {
@@ -162,17 +163,17 @@ export class Variable extends jspb.Message {
 
 export namespace Variable {
   export type AsObject = {
-    name: string,
-    str: string,
-    bool: boolean,
-    num: number,
-    hcl: string,
-    cli?: google_protobuf_empty_pb.Empty.AsObject,
-    file?: Variable.File.AsObject,
-    env?: google_protobuf_empty_pb.Empty.AsObject,
-    vcs?: Variable.VCS.AsObject,
-    server?: google_protobuf_empty_pb.Empty.AsObject,
-  }
+    name: string;
+    str: string;
+    bool: boolean;
+    num: number;
+    hcl: string;
+    cli?: google_protobuf_empty_pb.Empty.AsObject;
+    file?: Variable.File.AsObject;
+    env?: google_protobuf_empty_pb.Empty.AsObject;
+    vcs?: Variable.VCS.AsObject;
+    server?: google_protobuf_empty_pb.Empty.AsObject;
+  };
 
   export class File extends jspb.Message {
     getFilename(): string;
@@ -193,11 +194,10 @@ export namespace Variable {
 
   export namespace File {
     export type AsObject = {
-      filename: string,
-      hclRange?: Variable.HclRange.AsObject,
-    }
+      filename: string;
+      hclRange?: Variable.HclRange.AsObject;
+    };
   }
-
 
   export class VCS extends jspb.Message {
     getFilename(): string;
@@ -218,11 +218,10 @@ export namespace Variable {
 
   export namespace VCS {
     export type AsObject = {
-      filename: string,
-      hclRange?: Variable.HclRange.AsObject,
-    }
+      filename: string;
+      hclRange?: Variable.HclRange.AsObject;
+    };
   }
-
 
   export class HclPos extends jspb.Message {
     getLine(): number;
@@ -244,12 +243,11 @@ export namespace Variable {
 
   export namespace HclPos {
     export type AsObject = {
-      line: number,
-      column: number,
-      pb_byte: number,
-    }
+      line: number;
+      column: number;
+      pb_byte: number;
+    };
   }
-
 
   export class HclRange extends jspb.Message {
     getFilename(): string;
@@ -275,14 +273,13 @@ export namespace Variable {
 
   export namespace HclRange {
     export type AsObject = {
-      filename: string,
-      start?: Variable.HclPos.AsObject,
-      end?: Variable.HclPos.AsObject,
-    }
+      filename: string;
+      start?: Variable.HclPos.AsObject;
+      end?: Variable.HclPos.AsObject;
+    };
   }
 
-
-  export enum ValueCase { 
+  export enum ValueCase {
     VALUE_NOT_SET = 0,
     STR = 2,
     BOOL = 9,
@@ -290,7 +287,7 @@ export namespace Variable {
     HCL = 3,
   }
 
-  export enum SourceCase { 
+  export enum SourceCase {
     SOURCE_NOT_SET = 0,
     CLI = 4,
     FILE = 5,
@@ -353,17 +350,17 @@ export class Project extends jspb.Message {
 
 export namespace Project {
   export type AsObject = {
-    name: string,
-    applicationsList: Array<Application.AsObject>,
-    remoteEnabled: boolean,
-    dataSource?: Job.DataSource.AsObject,
-    dataSourcePoll?: Project.Poll.AsObject,
-    waypointHcl: Uint8Array | string,
-    waypointHclFormat: Project.Format,
-    fileChangeSignal: string,
-    variablesList: Array<Variable.AsObject>,
-    statusReportPoll?: Project.AppStatusPoll.AsObject,
-  }
+    name: string;
+    applicationsList: Array<Application.AsObject>;
+    remoteEnabled: boolean;
+    dataSource?: Job.DataSource.AsObject;
+    dataSourcePoll?: Project.Poll.AsObject;
+    waypointHcl: Uint8Array | string;
+    waypointHclFormat: Project.Format;
+    fileChangeSignal: string;
+    variablesList: Array<Variable.AsObject>;
+    statusReportPoll?: Project.AppStatusPoll.AsObject;
+  };
 
   export class Poll extends jspb.Message {
     getEnabled(): boolean;
@@ -382,11 +379,10 @@ export namespace Project {
 
   export namespace Poll {
     export type AsObject = {
-      enabled: boolean,
-      interval: string,
-    }
+      enabled: boolean;
+      interval: string;
+    };
   }
-
 
   export class AppStatusPoll extends jspb.Message {
     getEnabled(): boolean;
@@ -405,13 +401,12 @@ export namespace Project {
 
   export namespace AppStatusPoll {
     export type AsObject = {
-      enabled: boolean,
-      interval: string,
-    }
+      enabled: boolean;
+      interval: string;
+    };
   }
 
-
-  export enum Format { 
+  export enum Format {
     HCL = 0,
     JSON = 1,
   }
@@ -441,10 +436,10 @@ export class Workspace extends jspb.Message {
 
 export namespace Workspace {
   export type AsObject = {
-    name: string,
-    projectsList: Array<Workspace.Project.AsObject>,
-    activeTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-  }
+    name: string;
+    projectsList: Array<Workspace.Project.AsObject>;
+    activeTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+  };
 
   export class Project extends jspb.Message {
     getProject(): Ref.Project | undefined;
@@ -482,14 +477,13 @@ export namespace Workspace {
 
   export namespace Project {
     export type AsObject = {
-      project?: Ref.Project.AsObject,
-      workspace?: Ref.Workspace.AsObject,
-      dataSourceRef?: Job.DataSource.Ref.AsObject,
-      activeTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-      applicationsList: Array<Workspace.Application.AsObject>,
-    }
+      project?: Ref.Project.AsObject;
+      workspace?: Ref.Workspace.AsObject;
+      dataSourceRef?: Job.DataSource.Ref.AsObject;
+      activeTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+      applicationsList: Array<Workspace.Application.AsObject>;
+    };
   }
-
 
   export class Application extends jspb.Message {
     getApplication(): Ref.Application | undefined;
@@ -512,11 +506,10 @@ export namespace Workspace {
 
   export namespace Application {
     export type AsObject = {
-      application?: Ref.Application.AsObject,
-      activeTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    }
+      application?: Ref.Application.AsObject;
+      activeTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    };
   }
-
 }
 
 export class User extends jspb.Message {
@@ -547,12 +540,12 @@ export class User extends jspb.Message {
 
 export namespace User {
   export type AsObject = {
-    id: string,
-    username: string,
-    display: string,
-    email: string,
-    linksList: Array<User.Link.AsObject>,
-  }
+    id: string;
+    username: string;
+    display: string;
+    email: string;
+    linksList: Array<User.Link.AsObject>;
+  };
 
   export class Link extends jspb.Message {
     getOidc(): User.Link.OIDC | undefined;
@@ -572,8 +565,8 @@ export namespace User {
 
   export namespace Link {
     export type AsObject = {
-      oidc?: User.Link.OIDC.AsObject,
-    }
+      oidc?: User.Link.OIDC.AsObject;
+    };
 
     export class OIDC extends jspb.Message {
       getIss(): string;
@@ -592,18 +585,16 @@ export namespace User {
 
     export namespace OIDC {
       export type AsObject = {
-        iss: string,
-        sub: string,
-      }
+        iss: string;
+        sub: string;
+      };
     }
 
-
-    export enum MethodCase { 
+    export enum MethodCase {
       METHOD_NOT_SET = 0,
       OIDC = 1,
     }
   }
-
 }
 
 export class Ref extends jspb.Message {
@@ -616,8 +607,7 @@ export class Ref extends jspb.Message {
 }
 
 export namespace Ref {
-  export type AsObject = {
-  }
+  export type AsObject = {};
 
   export class Global extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -629,10 +619,8 @@ export namespace Ref {
   }
 
   export namespace Global {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class Application extends jspb.Message {
     getApplication(): string;
@@ -651,11 +639,10 @@ export namespace Ref {
 
   export namespace Application {
     export type AsObject = {
-      application: string,
-      project: string,
-    }
+      application: string;
+      project: string;
+    };
   }
-
 
   export class Project extends jspb.Message {
     getProject(): string;
@@ -671,10 +658,9 @@ export namespace Ref {
 
   export namespace Project {
     export type AsObject = {
-      project: string,
-    }
+      project: string;
+    };
   }
-
 
   export class Workspace extends jspb.Message {
     getWorkspace(): string;
@@ -690,10 +676,9 @@ export namespace Ref {
 
   export namespace Workspace {
     export type AsObject = {
-      workspace: string,
-    }
+      workspace: string;
+    };
   }
-
 
   export class Component extends jspb.Message {
     getType(): Component.Type;
@@ -712,11 +697,10 @@ export namespace Ref {
 
   export namespace Component {
     export type AsObject = {
-      type: Component.Type,
-      name: string,
-    }
+      type: Component.Type;
+      name: string;
+    };
   }
-
 
   export class Operation extends jspb.Message {
     getId(): string;
@@ -739,17 +723,16 @@ export namespace Ref {
 
   export namespace Operation {
     export type AsObject = {
-      id: string,
-      sequence?: Ref.OperationSeq.AsObject,
-    }
+      id: string;
+      sequence?: Ref.OperationSeq.AsObject;
+    };
 
-    export enum TargetCase { 
+    export enum TargetCase {
       TARGET_NOT_SET = 0,
       ID = 1,
       SEQUENCE = 2,
     }
   }
-
 
   export class OperationSeq extends jspb.Message {
     getApplication(): Ref.Application | undefined;
@@ -770,11 +753,10 @@ export namespace Ref {
 
   export namespace OperationSeq {
     export type AsObject = {
-      application?: Ref.Application.AsObject,
-      number: number,
-    }
+      application?: Ref.Application.AsObject;
+      number: number;
+    };
   }
-
 
   export class Runner extends jspb.Message {
     getAny(): Ref.RunnerAny | undefined;
@@ -799,17 +781,16 @@ export namespace Ref {
 
   export namespace Runner {
     export type AsObject = {
-      any?: Ref.RunnerAny.AsObject,
-      id?: Ref.RunnerId.AsObject,
-    }
+      any?: Ref.RunnerAny.AsObject;
+      id?: Ref.RunnerId.AsObject;
+    };
 
-    export enum TargetCase { 
+    export enum TargetCase {
       TARGET_NOT_SET = 0,
       ANY = 1,
       ID = 2,
     }
   }
-
 
   export class RunnerId extends jspb.Message {
     getId(): string;
@@ -825,10 +806,9 @@ export namespace Ref {
 
   export namespace RunnerId {
     export type AsObject = {
-      id: string,
-    }
+      id: string;
+    };
   }
-
 
   export class RunnerAny extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -840,10 +820,8 @@ export namespace Ref {
   }
 
   export namespace RunnerAny {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class User extends jspb.Message {
     getId(): Ref.UserId | undefined;
@@ -868,17 +846,16 @@ export namespace Ref {
 
   export namespace User {
     export type AsObject = {
-      id?: Ref.UserId.AsObject,
-      username?: Ref.UserUsername.AsObject,
-    }
+      id?: Ref.UserId.AsObject;
+      username?: Ref.UserUsername.AsObject;
+    };
 
-    export enum RefCase { 
+    export enum RefCase {
       REF_NOT_SET = 0,
       ID = 1,
       USERNAME = 2,
     }
   }
-
 
   export class UserId extends jspb.Message {
     getId(): string;
@@ -894,10 +871,9 @@ export namespace Ref {
 
   export namespace UserId {
     export type AsObject = {
-      id: string,
-    }
+      id: string;
+    };
   }
-
 
   export class UserUsername extends jspb.Message {
     getUsername(): string;
@@ -913,10 +889,9 @@ export namespace Ref {
 
   export namespace UserUsername {
     export type AsObject = {
-      username: string,
-    }
+      username: string;
+    };
   }
-
 
   export class AuthMethod extends jspb.Message {
     getName(): string;
@@ -932,10 +907,9 @@ export namespace Ref {
 
   export namespace AuthMethod {
     export type AsObject = {
-      name: string,
-    }
+      name: string;
+    };
   }
-
 
   export class DeclaredResource extends jspb.Message {
     getId(): string;
@@ -946,15 +920,17 @@ export namespace Ref {
     static toObject(includeInstance: boolean, msg: DeclaredResource): DeclaredResource.AsObject;
     static serializeBinaryToWriter(message: DeclaredResource, writer: jspb.BinaryWriter): void;
     static deserializeBinary(bytes: Uint8Array): DeclaredResource;
-    static deserializeBinaryFromReader(message: DeclaredResource, reader: jspb.BinaryReader): DeclaredResource;
+    static deserializeBinaryFromReader(
+      message: DeclaredResource,
+      reader: jspb.BinaryReader
+    ): DeclaredResource;
   }
 
   export namespace DeclaredResource {
     export type AsObject = {
-      id: string,
-    }
+      id: string;
+    };
   }
-
 }
 
 export class Component extends jspb.Message {
@@ -974,11 +950,11 @@ export class Component extends jspb.Message {
 
 export namespace Component {
   export type AsObject = {
-    type: Component.Type,
-    name: string,
-  }
+    type: Component.Type;
+    name: string;
+  };
 
-  export enum Type { 
+  export enum Type {
     UNKNOWN = 0,
     BUILDER = 1,
     REGISTRY = 2,
@@ -1019,14 +995,14 @@ export class Status extends jspb.Message {
 
 export namespace Status {
   export type AsObject = {
-    state: Status.State,
-    details: string,
-    error?: google_rpc_status_pb.Status.AsObject,
-    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    completeTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-  }
+    state: Status.State;
+    details: string;
+    error?: google_rpc_status_pb.Status.AsObject;
+    startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    completeTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+  };
 
-  export enum State { 
+  export enum State {
     UNKNOWN = 0,
     RUNNING = 1,
     SUCCESS = 2,
@@ -1050,8 +1026,8 @@ export class StatusFilter extends jspb.Message {
 
 export namespace StatusFilter {
   export type AsObject = {
-    filtersList: Array<StatusFilter.Filter.AsObject>,
-  }
+    filtersList: Array<StatusFilter.Filter.AsObject>;
+  };
 
   export class Filter extends jspb.Message {
     getState(): Status.State;
@@ -1069,15 +1045,14 @@ export namespace StatusFilter {
 
   export namespace Filter {
     export type AsObject = {
-      state: Status.State,
-    }
+      state: Status.State;
+    };
 
-    export enum FilterCase { 
+    export enum FilterCase {
       FILTER_NOT_SET = 0,
       STATE = 2,
     }
   }
-
 }
 
 export class Operation extends jspb.Message {
@@ -1090,10 +1065,9 @@ export class Operation extends jspb.Message {
 }
 
 export namespace Operation {
-  export type AsObject = {
-  }
+  export type AsObject = {};
 
-  export enum PhysicalState { 
+  export enum PhysicalState {
     UNKNOWN = 0,
     PENDING = 1,
     CREATED = 3,
@@ -1121,12 +1095,12 @@ export class OperationOrder extends jspb.Message {
 
 export namespace OperationOrder {
   export type AsObject = {
-    order: OperationOrder.Order,
-    desc: boolean,
-    limit: number,
-  }
+    order: OperationOrder.Order;
+    desc: boolean;
+    limit: number;
+  };
 
-  export enum Order { 
+  export enum Order {
     UNSET = 0,
     START_TIME = 1,
     COMPLETE_TIME = 2,
@@ -1150,9 +1124,9 @@ export class Generation extends jspb.Message {
 
 export namespace Generation {
   export type AsObject = {
-    id: string,
-    initialSequence: number,
-  }
+    id: string;
+    initialSequence: number;
+  };
 }
 
 export class DeclaredResource extends jspb.Message {
@@ -1186,13 +1160,13 @@ export class DeclaredResource extends jspb.Message {
 
 export namespace DeclaredResource {
   export type AsObject = {
-    id: string,
-    name: string,
-    platform: string,
-    state?: google_protobuf_any_pb.Any.AsObject,
-    stateJson: string,
-    categoryDisplayHint: ResourceCategoryDisplayHint,
-  }
+    id: string;
+    name: string;
+    platform: string;
+    state?: google_protobuf_any_pb.Any.AsObject;
+    stateJson: string;
+    categoryDisplayHint: ResourceCategoryDisplayHint;
+  };
 }
 
 export class TaskLaunchInfo extends jspb.Message {
@@ -1217,10 +1191,10 @@ export class TaskLaunchInfo extends jspb.Message {
 
 export namespace TaskLaunchInfo {
   export type AsObject = {
-    ociUrl: string,
-    environmentVariablesMap: Array<[string, string]>,
-    argumentsList: Array<string>,
-  }
+    ociUrl: string;
+    environmentVariablesMap: Array<[string, string]>;
+    argumentsList: Array<string>;
+  };
 }
 
 export class GetUserRequest extends jspb.Message {
@@ -1239,8 +1213,8 @@ export class GetUserRequest extends jspb.Message {
 
 export namespace GetUserRequest {
   export type AsObject = {
-    user?: Ref.User.AsObject,
-  }
+    user?: Ref.User.AsObject;
+  };
 }
 
 export class GetUserResponse extends jspb.Message {
@@ -1259,8 +1233,8 @@ export class GetUserResponse extends jspb.Message {
 
 export namespace GetUserResponse {
   export type AsObject = {
-    user?: User.AsObject,
-  }
+    user?: User.AsObject;
+  };
 }
 
 export class ListUsersResponse extends jspb.Message {
@@ -1274,13 +1248,16 @@ export class ListUsersResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListUsersResponse): ListUsersResponse.AsObject;
   static serializeBinaryToWriter(message: ListUsersResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListUsersResponse;
-  static deserializeBinaryFromReader(message: ListUsersResponse, reader: jspb.BinaryReader): ListUsersResponse;
+  static deserializeBinaryFromReader(
+    message: ListUsersResponse,
+    reader: jspb.BinaryReader
+  ): ListUsersResponse;
 }
 
 export namespace ListUsersResponse {
   export type AsObject = {
-    usersList: Array<User.AsObject>,
-  }
+    usersList: Array<User.AsObject>;
+  };
 }
 
 export class UpdateUserRequest extends jspb.Message {
@@ -1294,13 +1271,16 @@ export class UpdateUserRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpdateUserRequest): UpdateUserRequest.AsObject;
   static serializeBinaryToWriter(message: UpdateUserRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpdateUserRequest;
-  static deserializeBinaryFromReader(message: UpdateUserRequest, reader: jspb.BinaryReader): UpdateUserRequest;
+  static deserializeBinaryFromReader(
+    message: UpdateUserRequest,
+    reader: jspb.BinaryReader
+  ): UpdateUserRequest;
 }
 
 export namespace UpdateUserRequest {
   export type AsObject = {
-    user?: User.AsObject,
-  }
+    user?: User.AsObject;
+  };
 }
 
 export class UpdateUserResponse extends jspb.Message {
@@ -1314,13 +1294,16 @@ export class UpdateUserResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpdateUserResponse): UpdateUserResponse.AsObject;
   static serializeBinaryToWriter(message: UpdateUserResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpdateUserResponse;
-  static deserializeBinaryFromReader(message: UpdateUserResponse, reader: jspb.BinaryReader): UpdateUserResponse;
+  static deserializeBinaryFromReader(
+    message: UpdateUserResponse,
+    reader: jspb.BinaryReader
+  ): UpdateUserResponse;
 }
 
 export namespace UpdateUserResponse {
   export type AsObject = {
-    user?: User.AsObject,
-  }
+    user?: User.AsObject;
+  };
 }
 
 export class DeleteUserRequest extends jspb.Message {
@@ -1334,13 +1317,16 @@ export class DeleteUserRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: DeleteUserRequest): DeleteUserRequest.AsObject;
   static serializeBinaryToWriter(message: DeleteUserRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): DeleteUserRequest;
-  static deserializeBinaryFromReader(message: DeleteUserRequest, reader: jspb.BinaryReader): DeleteUserRequest;
+  static deserializeBinaryFromReader(
+    message: DeleteUserRequest,
+    reader: jspb.BinaryReader
+  ): DeleteUserRequest;
 }
 
 export namespace DeleteUserRequest {
   export type AsObject = {
-    user?: Ref.User.AsObject,
-  }
+    user?: Ref.User.AsObject;
+  };
 }
 
 export class AuthMethod extends jspb.Message {
@@ -1373,12 +1359,12 @@ export class AuthMethod extends jspb.Message {
 
 export namespace AuthMethod {
   export type AsObject = {
-    name: string,
-    displayName: string,
-    description: string,
-    accessSelector: string,
-    oidc?: AuthMethod.OIDC.AsObject,
-  }
+    name: string;
+    displayName: string;
+    description: string;
+    accessSelector: string;
+    oidc?: AuthMethod.OIDC.AsObject;
+  };
 
   export class OIDC extends jspb.Message {
     getClientId(): string;
@@ -1431,21 +1417,20 @@ export namespace AuthMethod {
 
   export namespace OIDC {
     export type AsObject = {
-      clientId: string,
-      clientSecret: string,
-      scopesList: Array<string>,
-      audsList: Array<string>,
-      allowedRedirectUrisList: Array<string>,
-      signingAlgsList: Array<string>,
-      discoveryUrl: string,
-      discoveryCaPemList: Array<string>,
-      claimMappingsMap: Array<[string, string]>,
-      listClaimMappingsMap: Array<[string, string]>,
-    }
+      clientId: string;
+      clientSecret: string;
+      scopesList: Array<string>;
+      audsList: Array<string>;
+      allowedRedirectUrisList: Array<string>;
+      signingAlgsList: Array<string>;
+      discoveryUrl: string;
+      discoveryCaPemList: Array<string>;
+      claimMappingsMap: Array<[string, string]>;
+      listClaimMappingsMap: Array<[string, string]>;
+    };
   }
 
-
-  export enum MethodCase { 
+  export enum MethodCase {
     METHOD_NOT_SET = 0,
     OIDC = 20,
   }
@@ -1471,12 +1456,12 @@ export class OIDCAuthMethod extends jspb.Message {
 
 export namespace OIDCAuthMethod {
   export type AsObject = {
-    name: string,
-    displayName: string,
-    kind: OIDCAuthMethod.Kind,
-  }
+    name: string;
+    displayName: string;
+    kind: OIDCAuthMethod.Kind;
+  };
 
-  export enum Kind { 
+  export enum Kind {
     UNKNOWN = 0,
     GITHUB = 1,
     GOOGLE = 2,
@@ -1494,13 +1479,16 @@ export class UpsertAuthMethodRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertAuthMethodRequest): UpsertAuthMethodRequest.AsObject;
   static serializeBinaryToWriter(message: UpsertAuthMethodRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertAuthMethodRequest;
-  static deserializeBinaryFromReader(message: UpsertAuthMethodRequest, reader: jspb.BinaryReader): UpsertAuthMethodRequest;
+  static deserializeBinaryFromReader(
+    message: UpsertAuthMethodRequest,
+    reader: jspb.BinaryReader
+  ): UpsertAuthMethodRequest;
 }
 
 export namespace UpsertAuthMethodRequest {
   export type AsObject = {
-    authMethod?: AuthMethod.AsObject,
-  }
+    authMethod?: AuthMethod.AsObject;
+  };
 }
 
 export class UpsertAuthMethodResponse extends jspb.Message {
@@ -1514,13 +1502,16 @@ export class UpsertAuthMethodResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertAuthMethodResponse): UpsertAuthMethodResponse.AsObject;
   static serializeBinaryToWriter(message: UpsertAuthMethodResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertAuthMethodResponse;
-  static deserializeBinaryFromReader(message: UpsertAuthMethodResponse, reader: jspb.BinaryReader): UpsertAuthMethodResponse;
+  static deserializeBinaryFromReader(
+    message: UpsertAuthMethodResponse,
+    reader: jspb.BinaryReader
+  ): UpsertAuthMethodResponse;
 }
 
 export namespace UpsertAuthMethodResponse {
   export type AsObject = {
-    authMethod?: AuthMethod.AsObject,
-  }
+    authMethod?: AuthMethod.AsObject;
+  };
 }
 
 export class GetAuthMethodRequest extends jspb.Message {
@@ -1534,13 +1525,16 @@ export class GetAuthMethodRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetAuthMethodRequest): GetAuthMethodRequest.AsObject;
   static serializeBinaryToWriter(message: GetAuthMethodRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetAuthMethodRequest;
-  static deserializeBinaryFromReader(message: GetAuthMethodRequest, reader: jspb.BinaryReader): GetAuthMethodRequest;
+  static deserializeBinaryFromReader(
+    message: GetAuthMethodRequest,
+    reader: jspb.BinaryReader
+  ): GetAuthMethodRequest;
 }
 
 export namespace GetAuthMethodRequest {
   export type AsObject = {
-    authMethod?: Ref.AuthMethod.AsObject,
-  }
+    authMethod?: Ref.AuthMethod.AsObject;
+  };
 }
 
 export class GetAuthMethodResponse extends jspb.Message {
@@ -1554,13 +1548,16 @@ export class GetAuthMethodResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetAuthMethodResponse): GetAuthMethodResponse.AsObject;
   static serializeBinaryToWriter(message: GetAuthMethodResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetAuthMethodResponse;
-  static deserializeBinaryFromReader(message: GetAuthMethodResponse, reader: jspb.BinaryReader): GetAuthMethodResponse;
+  static deserializeBinaryFromReader(
+    message: GetAuthMethodResponse,
+    reader: jspb.BinaryReader
+  ): GetAuthMethodResponse;
 }
 
 export namespace GetAuthMethodResponse {
   export type AsObject = {
-    authMethod?: AuthMethod.AsObject,
-  }
+    authMethod?: AuthMethod.AsObject;
+  };
 }
 
 export class DeleteAuthMethodRequest extends jspb.Message {
@@ -1574,13 +1571,16 @@ export class DeleteAuthMethodRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: DeleteAuthMethodRequest): DeleteAuthMethodRequest.AsObject;
   static serializeBinaryToWriter(message: DeleteAuthMethodRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): DeleteAuthMethodRequest;
-  static deserializeBinaryFromReader(message: DeleteAuthMethodRequest, reader: jspb.BinaryReader): DeleteAuthMethodRequest;
+  static deserializeBinaryFromReader(
+    message: DeleteAuthMethodRequest,
+    reader: jspb.BinaryReader
+  ): DeleteAuthMethodRequest;
 }
 
 export namespace DeleteAuthMethodRequest {
   export type AsObject = {
-    authMethod?: Ref.AuthMethod.AsObject,
-  }
+    authMethod?: Ref.AuthMethod.AsObject;
+  };
 }
 
 export class ListAuthMethodsResponse extends jspb.Message {
@@ -1594,13 +1594,16 @@ export class ListAuthMethodsResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListAuthMethodsResponse): ListAuthMethodsResponse.AsObject;
   static serializeBinaryToWriter(message: ListAuthMethodsResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListAuthMethodsResponse;
-  static deserializeBinaryFromReader(message: ListAuthMethodsResponse, reader: jspb.BinaryReader): ListAuthMethodsResponse;
+  static deserializeBinaryFromReader(
+    message: ListAuthMethodsResponse,
+    reader: jspb.BinaryReader
+  ): ListAuthMethodsResponse;
 }
 
 export namespace ListAuthMethodsResponse {
   export type AsObject = {
-    authMethodsList: Array<AuthMethod.AsObject>,
-  }
+    authMethodsList: Array<AuthMethod.AsObject>;
+  };
 }
 
 export class ListOIDCAuthMethodsResponse extends jspb.Message {
@@ -1611,16 +1614,22 @@ export class ListOIDCAuthMethodsResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListOIDCAuthMethodsResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: ListOIDCAuthMethodsResponse): ListOIDCAuthMethodsResponse.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: ListOIDCAuthMethodsResponse
+  ): ListOIDCAuthMethodsResponse.AsObject;
   static serializeBinaryToWriter(message: ListOIDCAuthMethodsResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListOIDCAuthMethodsResponse;
-  static deserializeBinaryFromReader(message: ListOIDCAuthMethodsResponse, reader: jspb.BinaryReader): ListOIDCAuthMethodsResponse;
+  static deserializeBinaryFromReader(
+    message: ListOIDCAuthMethodsResponse,
+    reader: jspb.BinaryReader
+  ): ListOIDCAuthMethodsResponse;
 }
 
 export namespace ListOIDCAuthMethodsResponse {
   export type AsObject = {
-    authMethodsList: Array<OIDCAuthMethod.AsObject>,
-  }
+    authMethodsList: Array<OIDCAuthMethod.AsObject>;
+  };
 }
 
 export class GetOIDCAuthURLRequest extends jspb.Message {
@@ -1640,15 +1649,18 @@ export class GetOIDCAuthURLRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetOIDCAuthURLRequest): GetOIDCAuthURLRequest.AsObject;
   static serializeBinaryToWriter(message: GetOIDCAuthURLRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetOIDCAuthURLRequest;
-  static deserializeBinaryFromReader(message: GetOIDCAuthURLRequest, reader: jspb.BinaryReader): GetOIDCAuthURLRequest;
+  static deserializeBinaryFromReader(
+    message: GetOIDCAuthURLRequest,
+    reader: jspb.BinaryReader
+  ): GetOIDCAuthURLRequest;
 }
 
 export namespace GetOIDCAuthURLRequest {
   export type AsObject = {
-    authMethod?: Ref.AuthMethod.AsObject,
-    redirectUri: string,
-    nonce: string,
-  }
+    authMethod?: Ref.AuthMethod.AsObject;
+    redirectUri: string;
+    nonce: string;
+  };
 }
 
 export class GetOIDCAuthURLResponse extends jspb.Message {
@@ -1660,13 +1672,16 @@ export class GetOIDCAuthURLResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetOIDCAuthURLResponse): GetOIDCAuthURLResponse.AsObject;
   static serializeBinaryToWriter(message: GetOIDCAuthURLResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetOIDCAuthURLResponse;
-  static deserializeBinaryFromReader(message: GetOIDCAuthURLResponse, reader: jspb.BinaryReader): GetOIDCAuthURLResponse;
+  static deserializeBinaryFromReader(
+    message: GetOIDCAuthURLResponse,
+    reader: jspb.BinaryReader
+  ): GetOIDCAuthURLResponse;
 }
 
 export namespace GetOIDCAuthURLResponse {
   export type AsObject = {
-    url: string,
-  }
+    url: string;
+  };
 }
 
 export class CompleteOIDCAuthRequest extends jspb.Message {
@@ -1692,17 +1707,20 @@ export class CompleteOIDCAuthRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: CompleteOIDCAuthRequest): CompleteOIDCAuthRequest.AsObject;
   static serializeBinaryToWriter(message: CompleteOIDCAuthRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): CompleteOIDCAuthRequest;
-  static deserializeBinaryFromReader(message: CompleteOIDCAuthRequest, reader: jspb.BinaryReader): CompleteOIDCAuthRequest;
+  static deserializeBinaryFromReader(
+    message: CompleteOIDCAuthRequest,
+    reader: jspb.BinaryReader
+  ): CompleteOIDCAuthRequest;
 }
 
 export namespace CompleteOIDCAuthRequest {
   export type AsObject = {
-    authMethod?: Ref.AuthMethod.AsObject,
-    redirectUri: string,
-    state: string,
-    nonce: string,
-    code: string,
-  }
+    authMethod?: Ref.AuthMethod.AsObject;
+    redirectUri: string;
+    state: string;
+    nonce: string;
+    code: string;
+  };
 }
 
 export class CompleteOIDCAuthResponse extends jspb.Message {
@@ -1725,16 +1743,19 @@ export class CompleteOIDCAuthResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: CompleteOIDCAuthResponse): CompleteOIDCAuthResponse.AsObject;
   static serializeBinaryToWriter(message: CompleteOIDCAuthResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): CompleteOIDCAuthResponse;
-  static deserializeBinaryFromReader(message: CompleteOIDCAuthResponse, reader: jspb.BinaryReader): CompleteOIDCAuthResponse;
+  static deserializeBinaryFromReader(
+    message: CompleteOIDCAuthResponse,
+    reader: jspb.BinaryReader
+  ): CompleteOIDCAuthResponse;
 }
 
 export namespace CompleteOIDCAuthResponse {
   export type AsObject = {
-    token: string,
-    user?: User.AsObject,
-    idClaimsJson: string,
-    userClaimsJson: string,
-  }
+    token: string;
+    user?: User.AsObject;
+    idClaimsJson: string;
+    userClaimsJson: string;
+  };
 }
 
 export class QueueJobRequest extends jspb.Message {
@@ -1756,9 +1777,9 @@ export class QueueJobRequest extends jspb.Message {
 
 export namespace QueueJobRequest {
   export type AsObject = {
-    job?: Job.AsObject,
-    expiresIn: string,
-  }
+    job?: Job.AsObject;
+    expiresIn: string;
+  };
 }
 
 export class QueueJobResponse extends jspb.Message {
@@ -1775,8 +1796,8 @@ export class QueueJobResponse extends jspb.Message {
 
 export namespace QueueJobResponse {
   export type AsObject = {
-    jobId: string,
-  }
+    jobId: string;
+  };
 }
 
 export class CancelJobRequest extends jspb.Message {
@@ -1793,8 +1814,8 @@ export class CancelJobRequest extends jspb.Message {
 
 export namespace CancelJobRequest {
   export type AsObject = {
-    jobId: string,
-  }
+    jobId: string;
+  };
 }
 
 export class ValidateJobRequest extends jspb.Message {
@@ -1811,14 +1832,17 @@ export class ValidateJobRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ValidateJobRequest): ValidateJobRequest.AsObject;
   static serializeBinaryToWriter(message: ValidateJobRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ValidateJobRequest;
-  static deserializeBinaryFromReader(message: ValidateJobRequest, reader: jspb.BinaryReader): ValidateJobRequest;
+  static deserializeBinaryFromReader(
+    message: ValidateJobRequest,
+    reader: jspb.BinaryReader
+  ): ValidateJobRequest;
 }
 
 export namespace ValidateJobRequest {
   export type AsObject = {
-    job?: Job.AsObject,
-    disableAssign: boolean,
-  }
+    job?: Job.AsObject;
+    disableAssign: boolean;
+  };
 }
 
 export class ValidateJobResponse extends jspb.Message {
@@ -1838,15 +1862,18 @@ export class ValidateJobResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ValidateJobResponse): ValidateJobResponse.AsObject;
   static serializeBinaryToWriter(message: ValidateJobResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ValidateJobResponse;
-  static deserializeBinaryFromReader(message: ValidateJobResponse, reader: jspb.BinaryReader): ValidateJobResponse;
+  static deserializeBinaryFromReader(
+    message: ValidateJobResponse,
+    reader: jspb.BinaryReader
+  ): ValidateJobResponse;
 }
 
 export namespace ValidateJobResponse {
   export type AsObject = {
-    valid: boolean,
-    validationError?: google_rpc_status_pb.Status.AsObject,
-    assignable: boolean,
-  }
+    valid: boolean;
+    validationError?: google_rpc_status_pb.Status.AsObject;
+    assignable: boolean;
+  };
 }
 
 export class Job extends jspb.Message {
@@ -2042,45 +2069,45 @@ export class Job extends jspb.Message {
 
 export namespace Job {
   export type AsObject = {
-    id: string,
-    singletonId: string,
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    targetRunner?: Ref.Runner.AsObject,
-    labelsMap: Array<[string, string]>,
-    dataSource?: Job.DataSource.AsObject,
-    dataSourceOverridesMap: Array<[string, string]>,
-    variablesList: Array<Variable.AsObject>,
-    noop?: Job.Noop.AsObject,
-    build?: Job.BuildOp.AsObject,
-    push?: Job.PushOp.AsObject,
-    deploy?: Job.DeployOp.AsObject,
-    destroy?: Job.DestroyOp.AsObject,
-    release?: Job.ReleaseOp.AsObject,
-    validate?: Job.ValidateOp.AsObject,
-    auth?: Job.AuthOp.AsObject,
-    docs?: Job.DocsOp.AsObject,
-    configSync?: Job.ConfigSyncOp.AsObject,
-    exec?: Job.ExecOp.AsObject,
-    up?: Job.UpOp.AsObject,
-    logs?: Job.LogsOp.AsObject,
-    queueProject?: Job.QueueProjectOp.AsObject,
-    poll?: Job.PollOp.AsObject,
-    statusReport?: Job.StatusReportOp.AsObject,
-    startTask?: Job.StartTaskLaunchOp.AsObject,
-    stopTask?: Job.StopTaskLaunchOp.AsObject,
-    state: Job.State,
-    assignedRunner?: Ref.RunnerId.AsObject,
-    queueTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    assignTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    ackTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    completeTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    dataSourceRef?: Job.DataSource.Ref.AsObject,
-    error?: google_rpc_status_pb.Status.AsObject,
-    result?: Job.Result.AsObject,
-    cancelTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    expireTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-  }
+    id: string;
+    singletonId: string;
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    targetRunner?: Ref.Runner.AsObject;
+    labelsMap: Array<[string, string]>;
+    dataSource?: Job.DataSource.AsObject;
+    dataSourceOverridesMap: Array<[string, string]>;
+    variablesList: Array<Variable.AsObject>;
+    noop?: Job.Noop.AsObject;
+    build?: Job.BuildOp.AsObject;
+    push?: Job.PushOp.AsObject;
+    deploy?: Job.DeployOp.AsObject;
+    destroy?: Job.DestroyOp.AsObject;
+    release?: Job.ReleaseOp.AsObject;
+    validate?: Job.ValidateOp.AsObject;
+    auth?: Job.AuthOp.AsObject;
+    docs?: Job.DocsOp.AsObject;
+    configSync?: Job.ConfigSyncOp.AsObject;
+    exec?: Job.ExecOp.AsObject;
+    up?: Job.UpOp.AsObject;
+    logs?: Job.LogsOp.AsObject;
+    queueProject?: Job.QueueProjectOp.AsObject;
+    poll?: Job.PollOp.AsObject;
+    statusReport?: Job.StatusReportOp.AsObject;
+    startTask?: Job.StartTaskLaunchOp.AsObject;
+    stopTask?: Job.StopTaskLaunchOp.AsObject;
+    state: Job.State;
+    assignedRunner?: Ref.RunnerId.AsObject;
+    queueTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    assignTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    ackTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    completeTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    dataSourceRef?: Job.DataSource.Ref.AsObject;
+    error?: google_rpc_status_pb.Status.AsObject;
+    result?: Job.Result.AsObject;
+    cancelTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    expireTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+  };
 
   export class Result extends jspb.Message {
     getBuild(): Job.BuildResult | undefined;
@@ -2158,22 +2185,21 @@ export namespace Job {
 
   export namespace Result {
     export type AsObject = {
-      build?: Job.BuildResult.AsObject,
-      push?: Job.PushResult.AsObject,
-      deploy?: Job.DeployResult.AsObject,
-      release?: Job.ReleaseResult.AsObject,
-      validate?: Job.ValidateResult.AsObject,
-      auth?: Job.AuthResult.AsObject,
-      docs?: Job.DocsResult.AsObject,
-      configSync?: Job.ConfigSyncResult.AsObject,
-      up?: Job.UpResult.AsObject,
-      queueProject?: Job.QueueProjectResult.AsObject,
-      poll?: Job.PollResult.AsObject,
-      statusReport?: Job.StatusReportResult.AsObject,
-      startTask?: Job.StartTaskResult.AsObject,
-    }
+      build?: Job.BuildResult.AsObject;
+      push?: Job.PushResult.AsObject;
+      deploy?: Job.DeployResult.AsObject;
+      release?: Job.ReleaseResult.AsObject;
+      validate?: Job.ValidateResult.AsObject;
+      auth?: Job.AuthResult.AsObject;
+      docs?: Job.DocsResult.AsObject;
+      configSync?: Job.ConfigSyncResult.AsObject;
+      up?: Job.UpResult.AsObject;
+      queueProject?: Job.QueueProjectResult.AsObject;
+      poll?: Job.PollResult.AsObject;
+      statusReport?: Job.StatusReportResult.AsObject;
+      startTask?: Job.StartTaskResult.AsObject;
+    };
   }
-
 
   export class DataSource extends jspb.Message {
     getLocal(): Job.Local | undefined;
@@ -2198,9 +2224,9 @@ export namespace Job {
 
   export namespace DataSource {
     export type AsObject = {
-      local?: Job.Local.AsObject,
-      git?: Job.Git.AsObject,
-    }
+      local?: Job.Local.AsObject;
+      git?: Job.Git.AsObject;
+    };
 
     export class Ref extends jspb.Message {
       getUnknown(): google_protobuf_empty_pb.Empty | undefined;
@@ -2225,25 +2251,23 @@ export namespace Job {
 
     export namespace Ref {
       export type AsObject = {
-        unknown?: google_protobuf_empty_pb.Empty.AsObject,
-        git?: Job.Git.Ref.AsObject,
-      }
+        unknown?: google_protobuf_empty_pb.Empty.AsObject;
+        git?: Job.Git.Ref.AsObject;
+      };
 
-      export enum RefCase { 
+      export enum RefCase {
         REF_NOT_SET = 0,
         UNKNOWN = 1,
         GIT = 2,
       }
     }
 
-
-    export enum SourceCase { 
+    export enum SourceCase {
       SOURCE_NOT_SET = 0,
       LOCAL = 1,
       GIT = 2,
     }
   }
-
 
   export class Local extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -2255,10 +2279,8 @@ export namespace Job {
   }
 
   export namespace Local {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class Git extends jspb.Message {
     getUrl(): string;
@@ -2295,13 +2317,13 @@ export namespace Job {
 
   export namespace Git {
     export type AsObject = {
-      url: string,
-      ref: string,
-      path: string,
-      ignoreChangesOutsidePath: boolean,
-      basic?: Job.Git.Basic.AsObject,
-      ssh?: Job.Git.SSH.AsObject,
-    }
+      url: string;
+      ref: string;
+      path: string;
+      ignoreChangesOutsidePath: boolean;
+      basic?: Job.Git.Basic.AsObject;
+      ssh?: Job.Git.SSH.AsObject;
+    };
 
     export class Basic extends jspb.Message {
       getUsername(): string;
@@ -2320,11 +2342,10 @@ export namespace Job {
 
     export namespace Basic {
       export type AsObject = {
-        username: string,
-        password: string,
-      }
+        username: string;
+        password: string;
+      };
     }
-
 
     export class SSH extends jspb.Message {
       getPrivateKeyPem(): Uint8Array | string;
@@ -2348,12 +2369,11 @@ export namespace Job {
 
     export namespace SSH {
       export type AsObject = {
-        privateKeyPem: Uint8Array | string,
-        password: string,
-        user: string,
-      }
+        privateKeyPem: Uint8Array | string;
+        password: string;
+        user: string;
+      };
     }
-
 
     export class Ref extends jspb.Message {
       getCommit(): string;
@@ -2374,19 +2394,17 @@ export namespace Job {
 
     export namespace Ref {
       export type AsObject = {
-        commit: string,
-        timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-      }
+        commit: string;
+        timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+      };
     }
 
-
-    export enum AuthCase { 
+    export enum AuthCase {
       AUTH_NOT_SET = 0,
       BASIC = 4,
       SSH = 5,
     }
   }
-
 
   export class Noop extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -2398,10 +2416,8 @@ export namespace Job {
   }
 
   export namespace Noop {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class UpOp extends jspb.Message {
     getRelease(): Job.ReleaseOp | undefined;
@@ -2419,10 +2435,9 @@ export namespace Job {
 
   export namespace UpOp {
     export type AsObject = {
-      release?: Job.ReleaseOp.AsObject,
-    }
+      release?: Job.ReleaseOp.AsObject;
+    };
   }
-
 
   export class UpResult extends jspb.Message {
     getReleaseUrl(): string;
@@ -2444,12 +2459,11 @@ export namespace Job {
 
   export namespace UpResult {
     export type AsObject = {
-      releaseUrl: string,
-      appUrl: string,
-      deployUrl: string,
-    }
+      releaseUrl: string;
+      appUrl: string;
+      deployUrl: string;
+    };
   }
-
 
   export class ValidateOp extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -2461,10 +2475,8 @@ export namespace Job {
   }
 
   export namespace ValidateOp {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class ValidateResult extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -2476,10 +2488,8 @@ export namespace Job {
   }
 
   export namespace ValidateResult {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class AuthOp extends jspb.Message {
     getCheckOnly(): boolean;
@@ -2500,11 +2510,10 @@ export namespace Job {
 
   export namespace AuthOp {
     export type AsObject = {
-      checkOnly: boolean,
-      component?: Ref.Component.AsObject,
-    }
+      checkOnly: boolean;
+      component?: Ref.Component.AsObject;
+    };
   }
-
 
   export class AuthResult extends jspb.Message {
     getResultsList(): Array<Job.AuthResult.Result>;
@@ -2522,8 +2531,8 @@ export namespace Job {
 
   export namespace AuthResult {
     export type AsObject = {
-      resultsList: Array<Job.AuthResult.Result.AsObject>,
-    }
+      resultsList: Array<Job.AuthResult.Result.AsObject>;
+    };
 
     export class Result extends jspb.Message {
       getComponent(): Component | undefined;
@@ -2560,17 +2569,15 @@ export namespace Job {
 
     export namespace Result {
       export type AsObject = {
-        component?: Component.AsObject,
-        checkResult: boolean,
-        checkError?: google_rpc_status_pb.Status.AsObject,
-        authCompleted: boolean,
-        authError?: google_rpc_status_pb.Status.AsObject,
-        authSupported: boolean,
-      }
+        component?: Component.AsObject;
+        checkResult: boolean;
+        checkError?: google_rpc_status_pb.Status.AsObject;
+        authCompleted: boolean;
+        authError?: google_rpc_status_pb.Status.AsObject;
+        authSupported: boolean;
+      };
     }
-
   }
-
 
   export class BuildOp extends jspb.Message {
     getDisablePush(): boolean;
@@ -2586,10 +2593,9 @@ export namespace Job {
 
   export namespace BuildOp {
     export type AsObject = {
-      disablePush: boolean,
-    }
+      disablePush: boolean;
+    };
   }
-
 
   export class BuildResult extends jspb.Message {
     getBuild(): Build | undefined;
@@ -2612,11 +2618,10 @@ export namespace Job {
 
   export namespace BuildResult {
     export type AsObject = {
-      build?: Build.AsObject,
-      push?: PushedArtifact.AsObject,
-    }
+      build?: Build.AsObject;
+      push?: PushedArtifact.AsObject;
+    };
   }
-
 
   export class PushOp extends jspb.Message {
     getBuild(): Build | undefined;
@@ -2634,10 +2639,9 @@ export namespace Job {
 
   export namespace PushOp {
     export type AsObject = {
-      build?: Build.AsObject,
-    }
+      build?: Build.AsObject;
+    };
   }
-
 
   export class PushResult extends jspb.Message {
     getArtifact(): PushedArtifact | undefined;
@@ -2655,10 +2659,9 @@ export namespace Job {
 
   export namespace PushResult {
     export type AsObject = {
-      artifact?: PushedArtifact.AsObject,
-    }
+      artifact?: PushedArtifact.AsObject;
+    };
   }
-
 
   export class DeployOp extends jspb.Message {
     getArtifact(): PushedArtifact | undefined;
@@ -2676,10 +2679,9 @@ export namespace Job {
 
   export namespace DeployOp {
     export type AsObject = {
-      artifact?: PushedArtifact.AsObject,
-    }
+      artifact?: PushedArtifact.AsObject;
+    };
   }
-
 
   export class DeployResult extends jspb.Message {
     getDeployment(): Deployment | undefined;
@@ -2697,10 +2699,9 @@ export namespace Job {
 
   export namespace DeployResult {
     export type AsObject = {
-      deployment?: Deployment.AsObject,
-    }
+      deployment?: Deployment.AsObject;
+    };
   }
-
 
   export class ExecOp extends jspb.Message {
     getInstanceId(): string;
@@ -2721,11 +2722,10 @@ export namespace Job {
 
   export namespace ExecOp {
     export type AsObject = {
-      instanceId: string,
-      deployment?: Deployment.AsObject,
-    }
+      instanceId: string;
+      deployment?: Deployment.AsObject;
+    };
   }
-
 
   export class ExecResult extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -2737,10 +2737,8 @@ export namespace Job {
   }
 
   export namespace ExecResult {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class LogsOp extends jspb.Message {
     getInstanceId(): string;
@@ -2769,13 +2767,12 @@ export namespace Job {
 
   export namespace LogsOp {
     export type AsObject = {
-      instanceId: string,
-      deployment?: Deployment.AsObject,
-      startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-      limit: number,
-    }
+      instanceId: string;
+      deployment?: Deployment.AsObject;
+      startTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+      limit: number;
+    };
   }
-
 
   export class DestroyOp extends jspb.Message {
     getWorkspace(): google_protobuf_empty_pb.Empty | undefined;
@@ -2800,17 +2797,16 @@ export namespace Job {
 
   export namespace DestroyOp {
     export type AsObject = {
-      workspace?: google_protobuf_empty_pb.Empty.AsObject,
-      deployment?: Deployment.AsObject,
-    }
+      workspace?: google_protobuf_empty_pb.Empty.AsObject;
+      deployment?: Deployment.AsObject;
+    };
 
-    export enum TargetCase { 
+    export enum TargetCase {
       TARGET_NOT_SET = 0,
       WORKSPACE = 1,
       DEPLOYMENT = 2,
     }
   }
-
 
   export class ReleaseOp extends jspb.Message {
     getDeployment(): Deployment | undefined;
@@ -2837,13 +2833,12 @@ export namespace Job {
 
   export namespace ReleaseOp {
     export type AsObject = {
-      deployment?: Deployment.AsObject,
-      prune: boolean,
-      pruneRetain: number,
-      pruneRetainOverride: boolean,
-    }
+      deployment?: Deployment.AsObject;
+      prune: boolean;
+      pruneRetain: number;
+      pruneRetainOverride: boolean;
+    };
   }
-
 
   export class ReleaseResult extends jspb.Message {
     getRelease(): Release | undefined;
@@ -2861,10 +2856,9 @@ export namespace Job {
 
   export namespace ReleaseResult {
     export type AsObject = {
-      release?: Release.AsObject,
-    }
+      release?: Release.AsObject;
+    };
   }
-
 
   export class TaskPluginParams extends jspb.Message {
     getPluginType(): string;
@@ -2883,17 +2877,19 @@ export namespace Job {
     static toObject(includeInstance: boolean, msg: TaskPluginParams): TaskPluginParams.AsObject;
     static serializeBinaryToWriter(message: TaskPluginParams, writer: jspb.BinaryWriter): void;
     static deserializeBinary(bytes: Uint8Array): TaskPluginParams;
-    static deserializeBinaryFromReader(message: TaskPluginParams, reader: jspb.BinaryReader): TaskPluginParams;
+    static deserializeBinaryFromReader(
+      message: TaskPluginParams,
+      reader: jspb.BinaryReader
+    ): TaskPluginParams;
   }
 
   export namespace TaskPluginParams {
     export type AsObject = {
-      pluginType: string,
-      hclConfig: Uint8Array | string,
-      hclFormat: Project.Format,
-    }
+      pluginType: string;
+      hclConfig: Uint8Array | string;
+      hclFormat: Project.Format;
+    };
   }
-
 
   export class StartTaskLaunchOp extends jspb.Message {
     getInfo(): TaskLaunchInfo | undefined;
@@ -2911,16 +2907,18 @@ export namespace Job {
     static toObject(includeInstance: boolean, msg: StartTaskLaunchOp): StartTaskLaunchOp.AsObject;
     static serializeBinaryToWriter(message: StartTaskLaunchOp, writer: jspb.BinaryWriter): void;
     static deserializeBinary(bytes: Uint8Array): StartTaskLaunchOp;
-    static deserializeBinaryFromReader(message: StartTaskLaunchOp, reader: jspb.BinaryReader): StartTaskLaunchOp;
+    static deserializeBinaryFromReader(
+      message: StartTaskLaunchOp,
+      reader: jspb.BinaryReader
+    ): StartTaskLaunchOp;
   }
 
   export namespace StartTaskLaunchOp {
     export type AsObject = {
-      info?: TaskLaunchInfo.AsObject,
-      params?: Job.TaskPluginParams.AsObject,
-    }
+      info?: TaskLaunchInfo.AsObject;
+      params?: Job.TaskPluginParams.AsObject;
+    };
   }
-
 
   export class StartTaskResult extends jspb.Message {
     getState(): google_protobuf_any_pb.Any | undefined;
@@ -2938,10 +2936,9 @@ export namespace Job {
 
   export namespace StartTaskResult {
     export type AsObject = {
-      state?: google_protobuf_any_pb.Any.AsObject,
-    }
+      state?: google_protobuf_any_pb.Any.AsObject;
+    };
   }
-
 
   export class StopTaskLaunchOp extends jspb.Message {
     getState(): google_protobuf_any_pb.Any | undefined;
@@ -2959,16 +2956,18 @@ export namespace Job {
     static toObject(includeInstance: boolean, msg: StopTaskLaunchOp): StopTaskLaunchOp.AsObject;
     static serializeBinaryToWriter(message: StopTaskLaunchOp, writer: jspb.BinaryWriter): void;
     static deserializeBinary(bytes: Uint8Array): StopTaskLaunchOp;
-    static deserializeBinaryFromReader(message: StopTaskLaunchOp, reader: jspb.BinaryReader): StopTaskLaunchOp;
+    static deserializeBinaryFromReader(
+      message: StopTaskLaunchOp,
+      reader: jspb.BinaryReader
+    ): StopTaskLaunchOp;
   }
 
   export namespace StopTaskLaunchOp {
     export type AsObject = {
-      state?: google_protobuf_any_pb.Any.AsObject,
-      params?: Job.TaskPluginParams.AsObject,
-    }
+      state?: google_protobuf_any_pb.Any.AsObject;
+      params?: Job.TaskPluginParams.AsObject;
+    };
   }
-
 
   export class StatusReportOp extends jspb.Message {
     getDeployment(): Deployment | undefined;
@@ -2993,17 +2992,16 @@ export namespace Job {
 
   export namespace StatusReportOp {
     export type AsObject = {
-      deployment?: Deployment.AsObject,
-      release?: Release.AsObject,
-    }
+      deployment?: Deployment.AsObject;
+      release?: Release.AsObject;
+    };
 
-    export enum TargetCase { 
+    export enum TargetCase {
       TARGET_NOT_SET = 0,
       DEPLOYMENT = 1,
       RELEASE = 2,
     }
   }
-
 
   export class StatusReportResult extends jspb.Message {
     getStatusReport(): StatusReport | undefined;
@@ -3016,15 +3014,17 @@ export namespace Job {
     static toObject(includeInstance: boolean, msg: StatusReportResult): StatusReportResult.AsObject;
     static serializeBinaryToWriter(message: StatusReportResult, writer: jspb.BinaryWriter): void;
     static deserializeBinary(bytes: Uint8Array): StatusReportResult;
-    static deserializeBinaryFromReader(message: StatusReportResult, reader: jspb.BinaryReader): StatusReportResult;
+    static deserializeBinaryFromReader(
+      message: StatusReportResult,
+      reader: jspb.BinaryReader
+    ): StatusReportResult;
   }
 
   export namespace StatusReportResult {
     export type AsObject = {
-      statusReport?: StatusReport.AsObject,
-    }
+      statusReport?: StatusReport.AsObject;
+    };
   }
-
 
   export class DocsOp extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -3036,10 +3036,8 @@ export namespace Job {
   }
 
   export namespace DocsOp {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class DocsResult extends jspb.Message {
     getResultsList(): Array<Job.DocsResult.Result>;
@@ -3057,8 +3055,8 @@ export namespace Job {
 
   export namespace DocsResult {
     export type AsObject = {
-      resultsList: Array<Job.DocsResult.Result.AsObject>,
-    }
+      resultsList: Array<Job.DocsResult.Result.AsObject>;
+    };
 
     export class Result extends jspb.Message {
       getComponent(): Component | undefined;
@@ -3081,13 +3079,11 @@ export namespace Job {
 
     export namespace Result {
       export type AsObject = {
-        component?: Component.AsObject,
-        docs?: Documentation.AsObject,
-      }
+        component?: Component.AsObject;
+        docs?: Documentation.AsObject;
+      };
     }
-
   }
-
 
   export class ConfigSyncOp extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -3099,10 +3095,8 @@ export namespace Job {
   }
 
   export namespace ConfigSyncOp {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class ConfigSyncResult extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -3110,14 +3104,15 @@ export namespace Job {
     static toObject(includeInstance: boolean, msg: ConfigSyncResult): ConfigSyncResult.AsObject;
     static serializeBinaryToWriter(message: ConfigSyncResult, writer: jspb.BinaryWriter): void;
     static deserializeBinary(bytes: Uint8Array): ConfigSyncResult;
-    static deserializeBinaryFromReader(message: ConfigSyncResult, reader: jspb.BinaryReader): ConfigSyncResult;
+    static deserializeBinaryFromReader(
+      message: ConfigSyncResult,
+      reader: jspb.BinaryReader
+    ): ConfigSyncResult;
   }
 
   export namespace ConfigSyncResult {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class PollOp extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -3129,10 +3124,8 @@ export namespace Job {
   }
 
   export namespace PollOp {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class PollResult extends jspb.Message {
     getJobId(): string;
@@ -3158,12 +3151,11 @@ export namespace Job {
 
   export namespace PollResult {
     export type AsObject = {
-      jobId: string,
-      oldRef?: Job.DataSource.Ref.AsObject,
-      newRef?: Job.DataSource.Ref.AsObject,
-    }
+      jobId: string;
+      oldRef?: Job.DataSource.Ref.AsObject;
+      newRef?: Job.DataSource.Ref.AsObject;
+    };
   }
-
 
   export class QueueProjectOp extends jspb.Message {
     getJobTemplate(): Job | undefined;
@@ -3181,29 +3173,34 @@ export namespace Job {
 
   export namespace QueueProjectOp {
     export type AsObject = {
-      jobTemplate?: Job.AsObject,
-    }
+      jobTemplate?: Job.AsObject;
+    };
   }
-
 
   export class QueueProjectResult extends jspb.Message {
     getApplicationsList(): Array<Job.QueueProjectResult.Application>;
     setApplicationsList(value: Array<Job.QueueProjectResult.Application>): QueueProjectResult;
     clearApplicationsList(): QueueProjectResult;
-    addApplications(value?: Job.QueueProjectResult.Application, index?: number): Job.QueueProjectResult.Application;
+    addApplications(
+      value?: Job.QueueProjectResult.Application,
+      index?: number
+    ): Job.QueueProjectResult.Application;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): QueueProjectResult.AsObject;
     static toObject(includeInstance: boolean, msg: QueueProjectResult): QueueProjectResult.AsObject;
     static serializeBinaryToWriter(message: QueueProjectResult, writer: jspb.BinaryWriter): void;
     static deserializeBinary(bytes: Uint8Array): QueueProjectResult;
-    static deserializeBinaryFromReader(message: QueueProjectResult, reader: jspb.BinaryReader): QueueProjectResult;
+    static deserializeBinaryFromReader(
+      message: QueueProjectResult,
+      reader: jspb.BinaryReader
+    ): QueueProjectResult;
   }
 
   export namespace QueueProjectResult {
     export type AsObject = {
-      applicationsList: Array<Job.QueueProjectResult.Application.AsObject>,
-    }
+      applicationsList: Array<Job.QueueProjectResult.Application.AsObject>;
+    };
 
     export class Application extends jspb.Message {
       getApplication(): Ref.Application | undefined;
@@ -3224,15 +3221,13 @@ export namespace Job {
 
     export namespace Application {
       export type AsObject = {
-        application?: Ref.Application.AsObject,
-        jobId: string,
-      }
+        application?: Ref.Application.AsObject;
+        jobId: string;
+      };
     }
-
   }
 
-
-  export enum State { 
+  export enum State {
     UNKNOWN = 0,
     QUEUED = 1,
     WAITING = 2,
@@ -3241,7 +3236,7 @@ export namespace Job {
     SUCCESS = 5,
   }
 
-  export enum OperationCase { 
+  export enum OperationCase {
     OPERATION_NOT_SET = 0,
     NOOP = 50,
     BUILD = 51,
@@ -3295,13 +3290,13 @@ export class Documentation extends jspb.Message {
 
 export namespace Documentation {
   export type AsObject = {
-    description: string,
-    example: string,
-    input: string,
-    output: string,
-    fieldsMap: Array<[string, Documentation.Field.AsObject]>,
-    mappersList: Array<Documentation.Mapper.AsObject>,
-  }
+    description: string;
+    example: string;
+    input: string;
+    output: string;
+    fieldsMap: Array<[string, Documentation.Field.AsObject]>;
+    mappersList: Array<Documentation.Mapper.AsObject>;
+  };
 
   export class Field extends jspb.Message {
     getName(): string;
@@ -3335,16 +3330,15 @@ export namespace Documentation {
 
   export namespace Field {
     export type AsObject = {
-      name: string,
-      synopsis: string,
-      summary: string,
-      optional: boolean,
-      envVar: string,
-      type: string,
-      pb_default: string,
-    }
+      name: string;
+      synopsis: string;
+      summary: string;
+      optional: boolean;
+      envVar: string;
+      type: string;
+      pb_default: string;
+    };
   }
-
 
   export class Mapper extends jspb.Message {
     getInput(): string;
@@ -3366,12 +3360,11 @@ export namespace Documentation {
 
   export namespace Mapper {
     export type AsObject = {
-      input: string,
-      output: string,
-      description: string,
-    }
+      input: string;
+      output: string;
+      description: string;
+    };
   }
-
 }
 
 export class GetJobRequest extends jspb.Message {
@@ -3388,8 +3381,8 @@ export class GetJobRequest extends jspb.Message {
 
 export namespace GetJobRequest {
   export type AsObject = {
-    jobId: string,
-  }
+    jobId: string;
+  };
 }
 
 export class ListJobsRequest extends jspb.Message {
@@ -3402,8 +3395,7 @@ export class ListJobsRequest extends jspb.Message {
 }
 
 export namespace ListJobsRequest {
-  export type AsObject = {
-  }
+  export type AsObject = {};
 }
 
 export class ListJobsResponse extends jspb.Message {
@@ -3422,8 +3414,8 @@ export class ListJobsResponse extends jspb.Message {
 
 export namespace ListJobsResponse {
   export type AsObject = {
-    jobsList: Array<Job.AsObject>,
-  }
+    jobsList: Array<Job.AsObject>;
+  };
 }
 
 export class GetJobStreamRequest extends jspb.Message {
@@ -3435,13 +3427,16 @@ export class GetJobStreamRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetJobStreamRequest): GetJobStreamRequest.AsObject;
   static serializeBinaryToWriter(message: GetJobStreamRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetJobStreamRequest;
-  static deserializeBinaryFromReader(message: GetJobStreamRequest, reader: jspb.BinaryReader): GetJobStreamRequest;
+  static deserializeBinaryFromReader(
+    message: GetJobStreamRequest,
+    reader: jspb.BinaryReader
+  ): GetJobStreamRequest;
 }
 
 export namespace GetJobStreamRequest {
   export type AsObject = {
-    jobId: string,
-  }
+    jobId: string;
+  };
 }
 
 export class GetJobStreamResponse extends jspb.Message {
@@ -3482,18 +3477,21 @@ export class GetJobStreamResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetJobStreamResponse): GetJobStreamResponse.AsObject;
   static serializeBinaryToWriter(message: GetJobStreamResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetJobStreamResponse;
-  static deserializeBinaryFromReader(message: GetJobStreamResponse, reader: jspb.BinaryReader): GetJobStreamResponse;
+  static deserializeBinaryFromReader(
+    message: GetJobStreamResponse,
+    reader: jspb.BinaryReader
+  ): GetJobStreamResponse;
 }
 
 export namespace GetJobStreamResponse {
   export type AsObject = {
-    open?: GetJobStreamResponse.Open.AsObject,
-    state?: GetJobStreamResponse.State.AsObject,
-    terminal?: GetJobStreamResponse.Terminal.AsObject,
-    download?: GetJobStreamResponse.Download.AsObject,
-    error?: GetJobStreamResponse.Error.AsObject,
-    complete?: GetJobStreamResponse.Complete.AsObject,
-  }
+    open?: GetJobStreamResponse.Open.AsObject;
+    state?: GetJobStreamResponse.State.AsObject;
+    terminal?: GetJobStreamResponse.Terminal.AsObject;
+    download?: GetJobStreamResponse.Download.AsObject;
+    error?: GetJobStreamResponse.Error.AsObject;
+    complete?: GetJobStreamResponse.Complete.AsObject;
+  };
 
   export class Open extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -3505,10 +3503,8 @@ export namespace GetJobStreamResponse {
   }
 
   export namespace Open {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class State extends jspb.Message {
     getPrevious(): Job.State;
@@ -3535,13 +3531,12 @@ export namespace GetJobStreamResponse {
 
   export namespace State {
     export type AsObject = {
-      previous: Job.State,
-      current: Job.State,
-      job?: Job.AsObject,
-      canceling: boolean,
-    }
+      previous: Job.State;
+      current: Job.State;
+      job?: Job.AsObject;
+      canceling: boolean;
+    };
   }
-
 
   export class Download extends jspb.Message {
     getDataSourceRef(): Job.DataSource.Ref | undefined;
@@ -3559,16 +3554,18 @@ export namespace GetJobStreamResponse {
 
   export namespace Download {
     export type AsObject = {
-      dataSourceRef?: Job.DataSource.Ref.AsObject,
-    }
+      dataSourceRef?: Job.DataSource.Ref.AsObject;
+    };
   }
-
 
   export class Terminal extends jspb.Message {
     getEventsList(): Array<GetJobStreamResponse.Terminal.Event>;
     setEventsList(value: Array<GetJobStreamResponse.Terminal.Event>): Terminal;
     clearEventsList(): Terminal;
-    addEvents(value?: GetJobStreamResponse.Terminal.Event, index?: number): GetJobStreamResponse.Terminal.Event;
+    addEvents(
+      value?: GetJobStreamResponse.Terminal.Event,
+      index?: number
+    ): GetJobStreamResponse.Terminal.Event;
 
     getBuffered(): boolean;
     setBuffered(value: boolean): Terminal;
@@ -3583,9 +3580,9 @@ export namespace GetJobStreamResponse {
 
   export namespace Terminal {
     export type AsObject = {
-      eventsList: Array<GetJobStreamResponse.Terminal.Event.AsObject>,
-      buffered: boolean,
-    }
+      eventsList: Array<GetJobStreamResponse.Terminal.Event.AsObject>;
+      buffered: boolean;
+    };
 
     export class Event extends jspb.Message {
       getTimestamp(): google_protobuf_timestamp_pb.Timestamp | undefined;
@@ -3640,15 +3637,15 @@ export namespace GetJobStreamResponse {
 
     export namespace Event {
       export type AsObject = {
-        timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-        line?: GetJobStreamResponse.Terminal.Event.Line.AsObject,
-        status?: GetJobStreamResponse.Terminal.Event.Status.AsObject,
-        namedValues?: GetJobStreamResponse.Terminal.Event.NamedValues.AsObject,
-        raw?: GetJobStreamResponse.Terminal.Event.Raw.AsObject,
-        table?: GetJobStreamResponse.Terminal.Event.Table.AsObject,
-        stepGroup?: GetJobStreamResponse.Terminal.Event.StepGroup.AsObject,
-        step?: GetJobStreamResponse.Terminal.Event.Step.AsObject,
-      }
+        timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+        line?: GetJobStreamResponse.Terminal.Event.Line.AsObject;
+        status?: GetJobStreamResponse.Terminal.Event.Status.AsObject;
+        namedValues?: GetJobStreamResponse.Terminal.Event.NamedValues.AsObject;
+        raw?: GetJobStreamResponse.Terminal.Event.Raw.AsObject;
+        table?: GetJobStreamResponse.Terminal.Event.Table.AsObject;
+        stepGroup?: GetJobStreamResponse.Terminal.Event.StepGroup.AsObject;
+        step?: GetJobStreamResponse.Terminal.Event.Step.AsObject;
+      };
 
       export class Status extends jspb.Message {
         getStatus(): string;
@@ -3670,12 +3667,11 @@ export namespace GetJobStreamResponse {
 
       export namespace Status {
         export type AsObject = {
-          status: string,
-          msg: string,
-          step: boolean,
-        }
+          status: string;
+          msg: string;
+          step: boolean;
+        };
       }
-
 
       export class Line extends jspb.Message {
         getMsg(): string;
@@ -3694,11 +3690,10 @@ export namespace GetJobStreamResponse {
 
       export namespace Line {
         export type AsObject = {
-          msg: string,
-          style: string,
-        }
+          msg: string;
+          style: string;
+        };
       }
-
 
       export class Raw extends jspb.Message {
         getData(): Uint8Array | string;
@@ -3719,11 +3714,10 @@ export namespace GetJobStreamResponse {
 
       export namespace Raw {
         export type AsObject = {
-          data: Uint8Array | string,
-          stderr: boolean,
-        }
+          data: Uint8Array | string;
+          stderr: boolean;
+        };
       }
-
 
       export class NamedValue extends jspb.Message {
         getName(): string;
@@ -3742,17 +3736,19 @@ export namespace GetJobStreamResponse {
 
       export namespace NamedValue {
         export type AsObject = {
-          name: string,
-          value: string,
-        }
+          name: string;
+          value: string;
+        };
       }
-
 
       export class NamedValues extends jspb.Message {
         getValuesList(): Array<GetJobStreamResponse.Terminal.Event.NamedValue>;
         setValuesList(value: Array<GetJobStreamResponse.Terminal.Event.NamedValue>): NamedValues;
         clearValuesList(): NamedValues;
-        addValues(value?: GetJobStreamResponse.Terminal.Event.NamedValue, index?: number): GetJobStreamResponse.Terminal.Event.NamedValue;
+        addValues(
+          value?: GetJobStreamResponse.Terminal.Event.NamedValue,
+          index?: number
+        ): GetJobStreamResponse.Terminal.Event.NamedValue;
 
         serializeBinary(): Uint8Array;
         toObject(includeInstance?: boolean): NamedValues.AsObject;
@@ -3764,10 +3760,9 @@ export namespace GetJobStreamResponse {
 
       export namespace NamedValues {
         export type AsObject = {
-          valuesList: Array<GetJobStreamResponse.Terminal.Event.NamedValue.AsObject>,
-        }
+          valuesList: Array<GetJobStreamResponse.Terminal.Event.NamedValue.AsObject>;
+        };
       }
-
 
       export class TableEntry extends jspb.Message {
         getValue(): string;
@@ -3786,17 +3781,19 @@ export namespace GetJobStreamResponse {
 
       export namespace TableEntry {
         export type AsObject = {
-          value: string,
-          color: string,
-        }
+          value: string;
+          color: string;
+        };
       }
-
 
       export class TableRow extends jspb.Message {
         getEntriesList(): Array<GetJobStreamResponse.Terminal.Event.TableEntry>;
         setEntriesList(value: Array<GetJobStreamResponse.Terminal.Event.TableEntry>): TableRow;
         clearEntriesList(): TableRow;
-        addEntries(value?: GetJobStreamResponse.Terminal.Event.TableEntry, index?: number): GetJobStreamResponse.Terminal.Event.TableEntry;
+        addEntries(
+          value?: GetJobStreamResponse.Terminal.Event.TableEntry,
+          index?: number
+        ): GetJobStreamResponse.Terminal.Event.TableEntry;
 
         serializeBinary(): Uint8Array;
         toObject(includeInstance?: boolean): TableRow.AsObject;
@@ -3808,10 +3805,9 @@ export namespace GetJobStreamResponse {
 
       export namespace TableRow {
         export type AsObject = {
-          entriesList: Array<GetJobStreamResponse.Terminal.Event.TableEntry.AsObject>,
-        }
+          entriesList: Array<GetJobStreamResponse.Terminal.Event.TableEntry.AsObject>;
+        };
       }
-
 
       export class Table extends jspb.Message {
         getHeadersList(): Array<string>;
@@ -3822,7 +3818,10 @@ export namespace GetJobStreamResponse {
         getRowsList(): Array<GetJobStreamResponse.Terminal.Event.TableRow>;
         setRowsList(value: Array<GetJobStreamResponse.Terminal.Event.TableRow>): Table;
         clearRowsList(): Table;
-        addRows(value?: GetJobStreamResponse.Terminal.Event.TableRow, index?: number): GetJobStreamResponse.Terminal.Event.TableRow;
+        addRows(
+          value?: GetJobStreamResponse.Terminal.Event.TableRow,
+          index?: number
+        ): GetJobStreamResponse.Terminal.Event.TableRow;
 
         serializeBinary(): Uint8Array;
         toObject(includeInstance?: boolean): Table.AsObject;
@@ -3834,11 +3833,10 @@ export namespace GetJobStreamResponse {
 
       export namespace Table {
         export type AsObject = {
-          headersList: Array<string>,
-          rowsList: Array<GetJobStreamResponse.Terminal.Event.TableRow.AsObject>,
-        }
+          headersList: Array<string>;
+          rowsList: Array<GetJobStreamResponse.Terminal.Event.TableRow.AsObject>;
+        };
       }
-
 
       export class StepGroup extends jspb.Message {
         getClose(): boolean;
@@ -3854,10 +3852,9 @@ export namespace GetJobStreamResponse {
 
       export namespace StepGroup {
         export type AsObject = {
-          close: boolean,
-        }
+          close: boolean;
+        };
       }
-
 
       export class Step extends jspb.Message {
         getId(): number;
@@ -3887,16 +3884,15 @@ export namespace GetJobStreamResponse {
 
       export namespace Step {
         export type AsObject = {
-          id: number,
-          close: boolean,
-          msg: string,
-          status: string,
-          output: Uint8Array | string,
-        }
+          id: number;
+          close: boolean;
+          msg: string;
+          status: string;
+          output: Uint8Array | string;
+        };
       }
 
-
-      export enum EventCase { 
+      export enum EventCase {
         EVENT_NOT_SET = 0,
         LINE = 2,
         STATUS = 3,
@@ -3907,9 +3903,7 @@ export namespace GetJobStreamResponse {
         STEP = 8,
       }
     }
-
   }
-
 
   export class Error extends jspb.Message {
     getError(): google_rpc_status_pb.Status | undefined;
@@ -3927,10 +3921,9 @@ export namespace GetJobStreamResponse {
 
   export namespace Error {
     export type AsObject = {
-      error?: google_rpc_status_pb.Status.AsObject,
-    }
+      error?: google_rpc_status_pb.Status.AsObject;
+    };
   }
-
 
   export class Complete extends jspb.Message {
     getError(): google_rpc_status_pb.Status | undefined;
@@ -3953,13 +3946,12 @@ export namespace GetJobStreamResponse {
 
   export namespace Complete {
     export type AsObject = {
-      error?: google_rpc_status_pb.Status.AsObject,
-      result?: Job.Result.AsObject,
-    }
+      error?: google_rpc_status_pb.Status.AsObject;
+      result?: Job.Result.AsObject;
+    };
   }
 
-
-  export enum EventCase { 
+  export enum EventCase {
     EVENT_NOT_SET = 0,
     OPEN = 1,
     STATE = 2,
@@ -3992,10 +3984,10 @@ export class Runner extends jspb.Message {
 
 export namespace Runner {
   export type AsObject = {
-    id: string,
-    byIdOnly: boolean,
-    componentsList: Array<Component.AsObject>,
-  }
+    id: string;
+    byIdOnly: boolean;
+    componentsList: Array<Component.AsObject>;
+  };
 }
 
 export class RunnerConfigRequest extends jspb.Message {
@@ -4011,13 +4003,16 @@ export class RunnerConfigRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: RunnerConfigRequest): RunnerConfigRequest.AsObject;
   static serializeBinaryToWriter(message: RunnerConfigRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): RunnerConfigRequest;
-  static deserializeBinaryFromReader(message: RunnerConfigRequest, reader: jspb.BinaryReader): RunnerConfigRequest;
+  static deserializeBinaryFromReader(
+    message: RunnerConfigRequest,
+    reader: jspb.BinaryReader
+  ): RunnerConfigRequest;
 }
 
 export namespace RunnerConfigRequest {
   export type AsObject = {
-    open?: RunnerConfigRequest.Open.AsObject,
-  }
+    open?: RunnerConfigRequest.Open.AsObject;
+  };
 
   export class Open extends jspb.Message {
     getRunner(): Runner | undefined;
@@ -4035,12 +4030,11 @@ export namespace RunnerConfigRequest {
 
   export namespace Open {
     export type AsObject = {
-      runner?: Runner.AsObject,
-    }
+      runner?: Runner.AsObject;
+    };
   }
 
-
-  export enum EventCase { 
+  export enum EventCase {
     EVENT_NOT_SET = 0,
     OPEN = 1,
   }
@@ -4057,13 +4051,16 @@ export class RunnerConfigResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: RunnerConfigResponse): RunnerConfigResponse.AsObject;
   static serializeBinaryToWriter(message: RunnerConfigResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): RunnerConfigResponse;
-  static deserializeBinaryFromReader(message: RunnerConfigResponse, reader: jspb.BinaryReader): RunnerConfigResponse;
+  static deserializeBinaryFromReader(
+    message: RunnerConfigResponse,
+    reader: jspb.BinaryReader
+  ): RunnerConfigResponse;
 }
 
 export namespace RunnerConfigResponse {
   export type AsObject = {
-    config?: RunnerConfig.AsObject,
-  }
+    config?: RunnerConfig.AsObject;
+  };
 }
 
 export class RunnerConfig extends jspb.Message {
@@ -4082,8 +4079,8 @@ export class RunnerConfig extends jspb.Message {
 
 export namespace RunnerConfig {
   export type AsObject = {
-    configVarsList: Array<ConfigVar.AsObject>,
-  }
+    configVarsList: Array<ConfigVar.AsObject>;
+  };
 }
 
 export class RunnerJobStreamRequest extends jspb.Message {
@@ -4129,19 +4126,22 @@ export class RunnerJobStreamRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: RunnerJobStreamRequest): RunnerJobStreamRequest.AsObject;
   static serializeBinaryToWriter(message: RunnerJobStreamRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): RunnerJobStreamRequest;
-  static deserializeBinaryFromReader(message: RunnerJobStreamRequest, reader: jspb.BinaryReader): RunnerJobStreamRequest;
+  static deserializeBinaryFromReader(
+    message: RunnerJobStreamRequest,
+    reader: jspb.BinaryReader
+  ): RunnerJobStreamRequest;
 }
 
 export namespace RunnerJobStreamRequest {
   export type AsObject = {
-    request?: RunnerJobStreamRequest.Request.AsObject,
-    ack?: RunnerJobStreamRequest.Ack.AsObject,
-    complete?: RunnerJobStreamRequest.Complete.AsObject,
-    error?: RunnerJobStreamRequest.Error.AsObject,
-    terminal?: GetJobStreamResponse.Terminal.AsObject,
-    download?: GetJobStreamResponse.Download.AsObject,
-    heartbeat?: RunnerJobStreamRequest.Heartbeat.AsObject,
-  }
+    request?: RunnerJobStreamRequest.Request.AsObject;
+    ack?: RunnerJobStreamRequest.Ack.AsObject;
+    complete?: RunnerJobStreamRequest.Complete.AsObject;
+    error?: RunnerJobStreamRequest.Error.AsObject;
+    terminal?: GetJobStreamResponse.Terminal.AsObject;
+    download?: GetJobStreamResponse.Download.AsObject;
+    heartbeat?: RunnerJobStreamRequest.Heartbeat.AsObject;
+  };
 
   export class Request extends jspb.Message {
     getRunnerId(): string;
@@ -4157,10 +4157,9 @@ export namespace RunnerJobStreamRequest {
 
   export namespace Request {
     export type AsObject = {
-      runnerId: string,
-    }
+      runnerId: string;
+    };
   }
-
 
   export class Ack extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -4172,10 +4171,8 @@ export namespace RunnerJobStreamRequest {
   }
 
   export namespace Ack {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class Complete extends jspb.Message {
     getResult(): Job.Result | undefined;
@@ -4193,10 +4190,9 @@ export namespace RunnerJobStreamRequest {
 
   export namespace Complete {
     export type AsObject = {
-      result?: Job.Result.AsObject,
-    }
+      result?: Job.Result.AsObject;
+    };
   }
-
 
   export class Error extends jspb.Message {
     getError(): google_rpc_status_pb.Status | undefined;
@@ -4214,10 +4210,9 @@ export namespace RunnerJobStreamRequest {
 
   export namespace Error {
     export type AsObject = {
-      error?: google_rpc_status_pb.Status.AsObject,
-    }
+      error?: google_rpc_status_pb.Status.AsObject;
+    };
   }
-
 
   export class Heartbeat extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -4229,12 +4224,10 @@ export namespace RunnerJobStreamRequest {
   }
 
   export namespace Heartbeat {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
 
-
-  export enum EventCase { 
+  export enum EventCase {
     EVENT_NOT_SET = 0,
     REQUEST = 1,
     ACK = 2,
@@ -4264,14 +4257,17 @@ export class RunnerJobStreamResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: RunnerJobStreamResponse): RunnerJobStreamResponse.AsObject;
   static serializeBinaryToWriter(message: RunnerJobStreamResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): RunnerJobStreamResponse;
-  static deserializeBinaryFromReader(message: RunnerJobStreamResponse, reader: jspb.BinaryReader): RunnerJobStreamResponse;
+  static deserializeBinaryFromReader(
+    message: RunnerJobStreamResponse,
+    reader: jspb.BinaryReader
+  ): RunnerJobStreamResponse;
 }
 
 export namespace RunnerJobStreamResponse {
   export type AsObject = {
-    assignment?: RunnerJobStreamResponse.JobAssignment.AsObject,
-    cancel?: RunnerJobStreamResponse.JobCancel.AsObject,
-  }
+    assignment?: RunnerJobStreamResponse.JobAssignment.AsObject;
+    cancel?: RunnerJobStreamResponse.JobCancel.AsObject;
+  };
 
   export class JobAssignment extends jspb.Message {
     getJob(): Job | undefined;
@@ -4289,10 +4285,9 @@ export namespace RunnerJobStreamResponse {
 
   export namespace JobAssignment {
     export type AsObject = {
-      job?: Job.AsObject,
-    }
+      job?: Job.AsObject;
+    };
   }
-
 
   export class JobCancel extends jspb.Message {
     getForce(): boolean;
@@ -4308,12 +4303,11 @@ export namespace RunnerJobStreamResponse {
 
   export namespace JobCancel {
     export type AsObject = {
-      force: boolean,
-    }
+      force: boolean;
+    };
   }
 
-
-  export enum EventCase { 
+  export enum EventCase {
     EVENT_NOT_SET = 0,
     ASSIGNMENT = 1,
     CANCEL = 2,
@@ -4323,15 +4317,20 @@ export namespace RunnerJobStreamResponse {
 export class RunnerGetDeploymentConfigRequest extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RunnerGetDeploymentConfigRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: RunnerGetDeploymentConfigRequest): RunnerGetDeploymentConfigRequest.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: RunnerGetDeploymentConfigRequest
+  ): RunnerGetDeploymentConfigRequest.AsObject;
   static serializeBinaryToWriter(message: RunnerGetDeploymentConfigRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): RunnerGetDeploymentConfigRequest;
-  static deserializeBinaryFromReader(message: RunnerGetDeploymentConfigRequest, reader: jspb.BinaryReader): RunnerGetDeploymentConfigRequest;
+  static deserializeBinaryFromReader(
+    message: RunnerGetDeploymentConfigRequest,
+    reader: jspb.BinaryReader
+  ): RunnerGetDeploymentConfigRequest;
 }
 
 export namespace RunnerGetDeploymentConfigRequest {
-  export type AsObject = {
-  }
+  export type AsObject = {};
 }
 
 export class RunnerGetDeploymentConfigResponse extends jspb.Message {
@@ -4346,18 +4345,24 @@ export class RunnerGetDeploymentConfigResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RunnerGetDeploymentConfigResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: RunnerGetDeploymentConfigResponse): RunnerGetDeploymentConfigResponse.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: RunnerGetDeploymentConfigResponse
+  ): RunnerGetDeploymentConfigResponse.AsObject;
   static serializeBinaryToWriter(message: RunnerGetDeploymentConfigResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): RunnerGetDeploymentConfigResponse;
-  static deserializeBinaryFromReader(message: RunnerGetDeploymentConfigResponse, reader: jspb.BinaryReader): RunnerGetDeploymentConfigResponse;
+  static deserializeBinaryFromReader(
+    message: RunnerGetDeploymentConfigResponse,
+    reader: jspb.BinaryReader
+  ): RunnerGetDeploymentConfigResponse;
 }
 
 export namespace RunnerGetDeploymentConfigResponse {
   export type AsObject = {
-    serverAddr: string,
-    serverTls: boolean,
-    serverTlsSkipVerify: boolean,
-  }
+    serverAddr: string;
+    serverTls: boolean;
+    serverTlsSkipVerify: boolean;
+  };
 }
 
 export class GetRunnerRequest extends jspb.Message {
@@ -4374,8 +4379,8 @@ export class GetRunnerRequest extends jspb.Message {
 
 export namespace GetRunnerRequest {
   export type AsObject = {
-    runnerId: string,
-  }
+    runnerId: string;
+  };
 }
 
 export class SetServerConfigRequest extends jspb.Message {
@@ -4389,13 +4394,16 @@ export class SetServerConfigRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: SetServerConfigRequest): SetServerConfigRequest.AsObject;
   static serializeBinaryToWriter(message: SetServerConfigRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): SetServerConfigRequest;
-  static deserializeBinaryFromReader(message: SetServerConfigRequest, reader: jspb.BinaryReader): SetServerConfigRequest;
+  static deserializeBinaryFromReader(
+    message: SetServerConfigRequest,
+    reader: jspb.BinaryReader
+  ): SetServerConfigRequest;
 }
 
 export namespace SetServerConfigRequest {
   export type AsObject = {
-    config?: ServerConfig.AsObject,
-  }
+    config?: ServerConfig.AsObject;
+  };
 }
 
 export class GetServerConfigResponse extends jspb.Message {
@@ -4409,13 +4417,16 @@ export class GetServerConfigResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetServerConfigResponse): GetServerConfigResponse.AsObject;
   static serializeBinaryToWriter(message: GetServerConfigResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetServerConfigResponse;
-  static deserializeBinaryFromReader(message: GetServerConfigResponse, reader: jspb.BinaryReader): GetServerConfigResponse;
+  static deserializeBinaryFromReader(
+    message: GetServerConfigResponse,
+    reader: jspb.BinaryReader
+  ): GetServerConfigResponse;
 }
 
 export namespace GetServerConfigResponse {
   export type AsObject = {
-    config?: ServerConfig.AsObject,
-  }
+    config?: ServerConfig.AsObject;
+  };
 }
 
 export class ServerConfig extends jspb.Message {
@@ -4437,9 +4448,9 @@ export class ServerConfig extends jspb.Message {
 
 export namespace ServerConfig {
   export type AsObject = {
-    advertiseAddrsList: Array<ServerConfig.AdvertiseAddr.AsObject>,
-    platform: string,
-  }
+    advertiseAddrsList: Array<ServerConfig.AdvertiseAddr.AsObject>;
+    platform: string;
+  };
 
   export class AdvertiseAddr extends jspb.Message {
     getAddr(): string;
@@ -4461,12 +4472,11 @@ export namespace ServerConfig {
 
   export namespace AdvertiseAddr {
     export type AsObject = {
-      addr: string,
-      tls: boolean,
-      tlsSkipVerify: boolean,
-    }
+      addr: string;
+      tls: boolean;
+      tlsSkipVerify: boolean;
+    };
   }
-
 }
 
 export class CreateHostnameRequest extends jspb.Message {
@@ -4483,14 +4493,17 @@ export class CreateHostnameRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: CreateHostnameRequest): CreateHostnameRequest.AsObject;
   static serializeBinaryToWriter(message: CreateHostnameRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): CreateHostnameRequest;
-  static deserializeBinaryFromReader(message: CreateHostnameRequest, reader: jspb.BinaryReader): CreateHostnameRequest;
+  static deserializeBinaryFromReader(
+    message: CreateHostnameRequest,
+    reader: jspb.BinaryReader
+  ): CreateHostnameRequest;
 }
 
 export namespace CreateHostnameRequest {
   export type AsObject = {
-    hostname: string,
-    target?: Hostname.Target.AsObject,
-  }
+    hostname: string;
+    target?: Hostname.Target.AsObject;
+  };
 }
 
 export class CreateHostnameResponse extends jspb.Message {
@@ -4504,13 +4517,16 @@ export class CreateHostnameResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: CreateHostnameResponse): CreateHostnameResponse.AsObject;
   static serializeBinaryToWriter(message: CreateHostnameResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): CreateHostnameResponse;
-  static deserializeBinaryFromReader(message: CreateHostnameResponse, reader: jspb.BinaryReader): CreateHostnameResponse;
+  static deserializeBinaryFromReader(
+    message: CreateHostnameResponse,
+    reader: jspb.BinaryReader
+  ): CreateHostnameResponse;
 }
 
 export namespace CreateHostnameResponse {
   export type AsObject = {
-    hostname?: Hostname.AsObject,
-  }
+    hostname?: Hostname.AsObject;
+  };
 }
 
 export class ListHostnamesRequest extends jspb.Message {
@@ -4524,13 +4540,16 @@ export class ListHostnamesRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListHostnamesRequest): ListHostnamesRequest.AsObject;
   static serializeBinaryToWriter(message: ListHostnamesRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListHostnamesRequest;
-  static deserializeBinaryFromReader(message: ListHostnamesRequest, reader: jspb.BinaryReader): ListHostnamesRequest;
+  static deserializeBinaryFromReader(
+    message: ListHostnamesRequest,
+    reader: jspb.BinaryReader
+  ): ListHostnamesRequest;
 }
 
 export namespace ListHostnamesRequest {
   export type AsObject = {
-    target?: Hostname.Target.AsObject,
-  }
+    target?: Hostname.Target.AsObject;
+  };
 }
 
 export class ListHostnamesResponse extends jspb.Message {
@@ -4544,13 +4563,16 @@ export class ListHostnamesResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListHostnamesResponse): ListHostnamesResponse.AsObject;
   static serializeBinaryToWriter(message: ListHostnamesResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListHostnamesResponse;
-  static deserializeBinaryFromReader(message: ListHostnamesResponse, reader: jspb.BinaryReader): ListHostnamesResponse;
+  static deserializeBinaryFromReader(
+    message: ListHostnamesResponse,
+    reader: jspb.BinaryReader
+  ): ListHostnamesResponse;
 }
 
 export namespace ListHostnamesResponse {
   export type AsObject = {
-    hostnamesList: Array<Hostname.AsObject>,
-  }
+    hostnamesList: Array<Hostname.AsObject>;
+  };
 }
 
 export class DeleteHostnameRequest extends jspb.Message {
@@ -4562,13 +4584,16 @@ export class DeleteHostnameRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: DeleteHostnameRequest): DeleteHostnameRequest.AsObject;
   static serializeBinaryToWriter(message: DeleteHostnameRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): DeleteHostnameRequest;
-  static deserializeBinaryFromReader(message: DeleteHostnameRequest, reader: jspb.BinaryReader): DeleteHostnameRequest;
+  static deserializeBinaryFromReader(
+    message: DeleteHostnameRequest,
+    reader: jspb.BinaryReader
+  ): DeleteHostnameRequest;
 }
 
 export namespace DeleteHostnameRequest {
   export type AsObject = {
-    hostname: string,
-  }
+    hostname: string;
+  };
 }
 
 export class Hostname extends jspb.Message {
@@ -4591,10 +4616,10 @@ export class Hostname extends jspb.Message {
 
 export namespace Hostname {
   export type AsObject = {
-    hostname: string,
-    fqdn: string,
-    targetLabelsMap: Array<[string, string]>,
-  }
+    hostname: string;
+    fqdn: string;
+    targetLabelsMap: Array<[string, string]>;
+  };
 
   export class Target extends jspb.Message {
     getApplication(): Hostname.TargetApp | undefined;
@@ -4614,15 +4639,14 @@ export namespace Hostname {
 
   export namespace Target {
     export type AsObject = {
-      application?: Hostname.TargetApp.AsObject,
-    }
+      application?: Hostname.TargetApp.AsObject;
+    };
 
-    export enum TargetCase { 
+    export enum TargetCase {
       TARGET_NOT_SET = 0,
       APPLICATION = 20,
     }
   }
-
 
   export class TargetApp extends jspb.Message {
     getApplication(): Ref.Application | undefined;
@@ -4645,11 +4669,10 @@ export namespace Hostname {
 
   export namespace TargetApp {
     export type AsObject = {
-      application?: Ref.Application.AsObject,
-      workspace?: Ref.Workspace.AsObject,
-    }
+      application?: Ref.Application.AsObject;
+      workspace?: Ref.Workspace.AsObject;
+    };
   }
-
 }
 
 export class ListWorkspacesRequest extends jspb.Message {
@@ -4675,17 +4698,20 @@ export class ListWorkspacesRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListWorkspacesRequest): ListWorkspacesRequest.AsObject;
   static serializeBinaryToWriter(message: ListWorkspacesRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListWorkspacesRequest;
-  static deserializeBinaryFromReader(message: ListWorkspacesRequest, reader: jspb.BinaryReader): ListWorkspacesRequest;
+  static deserializeBinaryFromReader(
+    message: ListWorkspacesRequest,
+    reader: jspb.BinaryReader
+  ): ListWorkspacesRequest;
 }
 
 export namespace ListWorkspacesRequest {
   export type AsObject = {
-    global?: google_protobuf_empty_pb.Empty.AsObject,
-    project?: Ref.Project.AsObject,
-    application?: Ref.Application.AsObject,
-  }
+    global?: google_protobuf_empty_pb.Empty.AsObject;
+    project?: Ref.Project.AsObject;
+    application?: Ref.Application.AsObject;
+  };
 
-  export enum ScopeCase { 
+  export enum ScopeCase {
     SCOPE_NOT_SET = 0,
     GLOBAL = 1,
     PROJECT = 2,
@@ -4704,13 +4730,16 @@ export class ListWorkspacesResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListWorkspacesResponse): ListWorkspacesResponse.AsObject;
   static serializeBinaryToWriter(message: ListWorkspacesResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListWorkspacesResponse;
-  static deserializeBinaryFromReader(message: ListWorkspacesResponse, reader: jspb.BinaryReader): ListWorkspacesResponse;
+  static deserializeBinaryFromReader(
+    message: ListWorkspacesResponse,
+    reader: jspb.BinaryReader
+  ): ListWorkspacesResponse;
 }
 
 export namespace ListWorkspacesResponse {
   export type AsObject = {
-    workspacesList: Array<Workspace.AsObject>,
-  }
+    workspacesList: Array<Workspace.AsObject>;
+  };
 }
 
 export class GetWorkspaceRequest extends jspb.Message {
@@ -4724,13 +4753,16 @@ export class GetWorkspaceRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetWorkspaceRequest): GetWorkspaceRequest.AsObject;
   static serializeBinaryToWriter(message: GetWorkspaceRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetWorkspaceRequest;
-  static deserializeBinaryFromReader(message: GetWorkspaceRequest, reader: jspb.BinaryReader): GetWorkspaceRequest;
+  static deserializeBinaryFromReader(
+    message: GetWorkspaceRequest,
+    reader: jspb.BinaryReader
+  ): GetWorkspaceRequest;
 }
 
 export namespace GetWorkspaceRequest {
   export type AsObject = {
-    workspace?: Ref.Workspace.AsObject,
-  }
+    workspace?: Ref.Workspace.AsObject;
+  };
 }
 
 export class GetWorkspaceResponse extends jspb.Message {
@@ -4744,13 +4776,16 @@ export class GetWorkspaceResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetWorkspaceResponse): GetWorkspaceResponse.AsObject;
   static serializeBinaryToWriter(message: GetWorkspaceResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetWorkspaceResponse;
-  static deserializeBinaryFromReader(message: GetWorkspaceResponse, reader: jspb.BinaryReader): GetWorkspaceResponse;
+  static deserializeBinaryFromReader(
+    message: GetWorkspaceResponse,
+    reader: jspb.BinaryReader
+  ): GetWorkspaceResponse;
 }
 
 export namespace GetWorkspaceResponse {
   export type AsObject = {
-    workspace?: Workspace.AsObject,
-  }
+    workspace?: Workspace.AsObject;
+  };
 }
 
 export class UpsertProjectRequest extends jspb.Message {
@@ -4764,13 +4799,16 @@ export class UpsertProjectRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertProjectRequest): UpsertProjectRequest.AsObject;
   static serializeBinaryToWriter(message: UpsertProjectRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertProjectRequest;
-  static deserializeBinaryFromReader(message: UpsertProjectRequest, reader: jspb.BinaryReader): UpsertProjectRequest;
+  static deserializeBinaryFromReader(
+    message: UpsertProjectRequest,
+    reader: jspb.BinaryReader
+  ): UpsertProjectRequest;
 }
 
 export namespace UpsertProjectRequest {
   export type AsObject = {
-    project?: Project.AsObject,
-  }
+    project?: Project.AsObject;
+  };
 }
 
 export class UpsertProjectResponse extends jspb.Message {
@@ -4784,13 +4822,16 @@ export class UpsertProjectResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertProjectResponse): UpsertProjectResponse.AsObject;
   static serializeBinaryToWriter(message: UpsertProjectResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertProjectResponse;
-  static deserializeBinaryFromReader(message: UpsertProjectResponse, reader: jspb.BinaryReader): UpsertProjectResponse;
+  static deserializeBinaryFromReader(
+    message: UpsertProjectResponse,
+    reader: jspb.BinaryReader
+  ): UpsertProjectResponse;
 }
 
 export namespace UpsertProjectResponse {
   export type AsObject = {
-    project?: Project.AsObject,
-  }
+    project?: Project.AsObject;
+  };
 }
 
 export class GetProjectRequest extends jspb.Message {
@@ -4804,13 +4845,16 @@ export class GetProjectRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetProjectRequest): GetProjectRequest.AsObject;
   static serializeBinaryToWriter(message: GetProjectRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetProjectRequest;
-  static deserializeBinaryFromReader(message: GetProjectRequest, reader: jspb.BinaryReader): GetProjectRequest;
+  static deserializeBinaryFromReader(
+    message: GetProjectRequest,
+    reader: jspb.BinaryReader
+  ): GetProjectRequest;
 }
 
 export namespace GetProjectRequest {
   export type AsObject = {
-    project?: Ref.Project.AsObject,
-  }
+    project?: Ref.Project.AsObject;
+  };
 }
 
 export class GetProjectResponse extends jspb.Message {
@@ -4829,14 +4873,17 @@ export class GetProjectResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetProjectResponse): GetProjectResponse.AsObject;
   static serializeBinaryToWriter(message: GetProjectResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetProjectResponse;
-  static deserializeBinaryFromReader(message: GetProjectResponse, reader: jspb.BinaryReader): GetProjectResponse;
+  static deserializeBinaryFromReader(
+    message: GetProjectResponse,
+    reader: jspb.BinaryReader
+  ): GetProjectResponse;
 }
 
 export namespace GetProjectResponse {
   export type AsObject = {
-    project?: Project.AsObject,
-    workspacesList: Array<Workspace.Project.AsObject>,
-  }
+    project?: Project.AsObject;
+    workspacesList: Array<Workspace.Project.AsObject>;
+  };
 }
 
 export class ListProjectsResponse extends jspb.Message {
@@ -4850,13 +4897,16 @@ export class ListProjectsResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListProjectsResponse): ListProjectsResponse.AsObject;
   static serializeBinaryToWriter(message: ListProjectsResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListProjectsResponse;
-  static deserializeBinaryFromReader(message: ListProjectsResponse, reader: jspb.BinaryReader): ListProjectsResponse;
+  static deserializeBinaryFromReader(
+    message: ListProjectsResponse,
+    reader: jspb.BinaryReader
+  ): ListProjectsResponse;
 }
 
 export namespace ListProjectsResponse {
   export type AsObject = {
-    projectsList: Array<Ref.Project.AsObject>,
-  }
+    projectsList: Array<Ref.Project.AsObject>;
+  };
 }
 
 export class UpsertApplicationRequest extends jspb.Message {
@@ -4876,15 +4926,18 @@ export class UpsertApplicationRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertApplicationRequest): UpsertApplicationRequest.AsObject;
   static serializeBinaryToWriter(message: UpsertApplicationRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertApplicationRequest;
-  static deserializeBinaryFromReader(message: UpsertApplicationRequest, reader: jspb.BinaryReader): UpsertApplicationRequest;
+  static deserializeBinaryFromReader(
+    message: UpsertApplicationRequest,
+    reader: jspb.BinaryReader
+  ): UpsertApplicationRequest;
 }
 
 export namespace UpsertApplicationRequest {
   export type AsObject = {
-    project?: Ref.Project.AsObject,
-    name: string,
-    fileChangeSignal: string,
-  }
+    project?: Ref.Project.AsObject;
+    name: string;
+    fileChangeSignal: string;
+  };
 }
 
 export class UpsertApplicationResponse extends jspb.Message {
@@ -4895,16 +4948,22 @@ export class UpsertApplicationResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpsertApplicationResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: UpsertApplicationResponse): UpsertApplicationResponse.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: UpsertApplicationResponse
+  ): UpsertApplicationResponse.AsObject;
   static serializeBinaryToWriter(message: UpsertApplicationResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertApplicationResponse;
-  static deserializeBinaryFromReader(message: UpsertApplicationResponse, reader: jspb.BinaryReader): UpsertApplicationResponse;
+  static deserializeBinaryFromReader(
+    message: UpsertApplicationResponse,
+    reader: jspb.BinaryReader
+  ): UpsertApplicationResponse;
 }
 
 export namespace UpsertApplicationResponse {
   export type AsObject = {
-    application?: Application.AsObject,
-  }
+    application?: Application.AsObject;
+  };
 }
 
 export class UpsertBuildRequest extends jspb.Message {
@@ -4918,13 +4977,16 @@ export class UpsertBuildRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertBuildRequest): UpsertBuildRequest.AsObject;
   static serializeBinaryToWriter(message: UpsertBuildRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertBuildRequest;
-  static deserializeBinaryFromReader(message: UpsertBuildRequest, reader: jspb.BinaryReader): UpsertBuildRequest;
+  static deserializeBinaryFromReader(
+    message: UpsertBuildRequest,
+    reader: jspb.BinaryReader
+  ): UpsertBuildRequest;
 }
 
 export namespace UpsertBuildRequest {
   export type AsObject = {
-    build?: Build.AsObject,
-  }
+    build?: Build.AsObject;
+  };
 }
 
 export class UpsertBuildResponse extends jspb.Message {
@@ -4938,13 +5000,16 @@ export class UpsertBuildResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertBuildResponse): UpsertBuildResponse.AsObject;
   static serializeBinaryToWriter(message: UpsertBuildResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertBuildResponse;
-  static deserializeBinaryFromReader(message: UpsertBuildResponse, reader: jspb.BinaryReader): UpsertBuildResponse;
+  static deserializeBinaryFromReader(
+    message: UpsertBuildResponse,
+    reader: jspb.BinaryReader
+  ): UpsertBuildResponse;
 }
 
 export namespace UpsertBuildResponse {
   export type AsObject = {
-    build?: Build.AsObject,
-  }
+    build?: Build.AsObject;
+  };
 }
 
 export class ListBuildsRequest extends jspb.Message {
@@ -4968,15 +5033,18 @@ export class ListBuildsRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListBuildsRequest): ListBuildsRequest.AsObject;
   static serializeBinaryToWriter(message: ListBuildsRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListBuildsRequest;
-  static deserializeBinaryFromReader(message: ListBuildsRequest, reader: jspb.BinaryReader): ListBuildsRequest;
+  static deserializeBinaryFromReader(
+    message: ListBuildsRequest,
+    reader: jspb.BinaryReader
+  ): ListBuildsRequest;
 }
 
 export namespace ListBuildsRequest {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    order?: OperationOrder.AsObject,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    order?: OperationOrder.AsObject;
+  };
 }
 
 export class ListBuildsResponse extends jspb.Message {
@@ -4990,13 +5058,16 @@ export class ListBuildsResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListBuildsResponse): ListBuildsResponse.AsObject;
   static serializeBinaryToWriter(message: ListBuildsResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListBuildsResponse;
-  static deserializeBinaryFromReader(message: ListBuildsResponse, reader: jspb.BinaryReader): ListBuildsResponse;
+  static deserializeBinaryFromReader(
+    message: ListBuildsResponse,
+    reader: jspb.BinaryReader
+  ): ListBuildsResponse;
 }
 
 export namespace ListBuildsResponse {
   export type AsObject = {
-    buildsList: Array<Build.AsObject>,
-  }
+    buildsList: Array<Build.AsObject>;
+  };
 }
 
 export class GetLatestBuildRequest extends jspb.Message {
@@ -5015,14 +5086,17 @@ export class GetLatestBuildRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetLatestBuildRequest): GetLatestBuildRequest.AsObject;
   static serializeBinaryToWriter(message: GetLatestBuildRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetLatestBuildRequest;
-  static deserializeBinaryFromReader(message: GetLatestBuildRequest, reader: jspb.BinaryReader): GetLatestBuildRequest;
+  static deserializeBinaryFromReader(
+    message: GetLatestBuildRequest,
+    reader: jspb.BinaryReader
+  ): GetLatestBuildRequest;
 }
 
 export namespace GetLatestBuildRequest {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+  };
 }
 
 export class GetBuildRequest extends jspb.Message {
@@ -5041,8 +5115,8 @@ export class GetBuildRequest extends jspb.Message {
 
 export namespace GetBuildRequest {
   export type AsObject = {
-    ref?: Ref.Operation.AsObject,
-  }
+    ref?: Ref.Operation.AsObject;
+  };
 }
 
 export class Build extends jspb.Message {
@@ -5098,17 +5172,17 @@ export class Build extends jspb.Message {
 
 export namespace Build {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    sequence: number,
-    id: string,
-    status?: Status.AsObject,
-    component?: Component.AsObject,
-    artifact?: Artifact.AsObject,
-    labelsMap: Array<[string, string]>,
-    templateData: Uint8Array | string,
-    jobId: string,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    sequence: number;
+    id: string;
+    status?: Status.AsObject;
+    component?: Component.AsObject;
+    artifact?: Artifact.AsObject;
+    labelsMap: Array<[string, string]>;
+    templateData: Uint8Array | string;
+    jobId: string;
+  };
 }
 
 export class Artifact extends jspb.Message {
@@ -5127,8 +5201,8 @@ export class Artifact extends jspb.Message {
 
 export namespace Artifact {
   export type AsObject = {
-    artifact?: google_protobuf_any_pb.Any.AsObject,
-  }
+    artifact?: google_protobuf_any_pb.Any.AsObject;
+  };
 }
 
 export class UpsertPushedArtifactRequest extends jspb.Message {
@@ -5139,16 +5213,22 @@ export class UpsertPushedArtifactRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpsertPushedArtifactRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: UpsertPushedArtifactRequest): UpsertPushedArtifactRequest.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: UpsertPushedArtifactRequest
+  ): UpsertPushedArtifactRequest.AsObject;
   static serializeBinaryToWriter(message: UpsertPushedArtifactRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertPushedArtifactRequest;
-  static deserializeBinaryFromReader(message: UpsertPushedArtifactRequest, reader: jspb.BinaryReader): UpsertPushedArtifactRequest;
+  static deserializeBinaryFromReader(
+    message: UpsertPushedArtifactRequest,
+    reader: jspb.BinaryReader
+  ): UpsertPushedArtifactRequest;
 }
 
 export namespace UpsertPushedArtifactRequest {
   export type AsObject = {
-    artifact?: PushedArtifact.AsObject,
-  }
+    artifact?: PushedArtifact.AsObject;
+  };
 }
 
 export class UpsertPushedArtifactResponse extends jspb.Message {
@@ -5159,16 +5239,22 @@ export class UpsertPushedArtifactResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpsertPushedArtifactResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: UpsertPushedArtifactResponse): UpsertPushedArtifactResponse.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: UpsertPushedArtifactResponse
+  ): UpsertPushedArtifactResponse.AsObject;
   static serializeBinaryToWriter(message: UpsertPushedArtifactResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertPushedArtifactResponse;
-  static deserializeBinaryFromReader(message: UpsertPushedArtifactResponse, reader: jspb.BinaryReader): UpsertPushedArtifactResponse;
+  static deserializeBinaryFromReader(
+    message: UpsertPushedArtifactResponse,
+    reader: jspb.BinaryReader
+  ): UpsertPushedArtifactResponse;
 }
 
 export namespace UpsertPushedArtifactResponse {
   export type AsObject = {
-    artifact?: PushedArtifact.AsObject,
-  }
+    artifact?: PushedArtifact.AsObject;
+  };
 }
 
 export class GetLatestPushedArtifactRequest extends jspb.Message {
@@ -5184,17 +5270,23 @@ export class GetLatestPushedArtifactRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetLatestPushedArtifactRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: GetLatestPushedArtifactRequest): GetLatestPushedArtifactRequest.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: GetLatestPushedArtifactRequest
+  ): GetLatestPushedArtifactRequest.AsObject;
   static serializeBinaryToWriter(message: GetLatestPushedArtifactRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetLatestPushedArtifactRequest;
-  static deserializeBinaryFromReader(message: GetLatestPushedArtifactRequest, reader: jspb.BinaryReader): GetLatestPushedArtifactRequest;
+  static deserializeBinaryFromReader(
+    message: GetLatestPushedArtifactRequest,
+    reader: jspb.BinaryReader
+  ): GetLatestPushedArtifactRequest;
 }
 
 export namespace GetLatestPushedArtifactRequest {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+  };
 }
 
 export class GetPushedArtifactRequest extends jspb.Message {
@@ -5208,13 +5300,16 @@ export class GetPushedArtifactRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetPushedArtifactRequest): GetPushedArtifactRequest.AsObject;
   static serializeBinaryToWriter(message: GetPushedArtifactRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetPushedArtifactRequest;
-  static deserializeBinaryFromReader(message: GetPushedArtifactRequest, reader: jspb.BinaryReader): GetPushedArtifactRequest;
+  static deserializeBinaryFromReader(
+    message: GetPushedArtifactRequest,
+    reader: jspb.BinaryReader
+  ): GetPushedArtifactRequest;
 }
 
 export namespace GetPushedArtifactRequest {
   export type AsObject = {
-    ref?: Ref.Operation.AsObject,
-  }
+    ref?: Ref.Operation.AsObject;
+  };
 }
 
 export class ListPushedArtifactsRequest extends jspb.Message {
@@ -5243,20 +5338,26 @@ export class ListPushedArtifactsRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListPushedArtifactsRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: ListPushedArtifactsRequest): ListPushedArtifactsRequest.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: ListPushedArtifactsRequest
+  ): ListPushedArtifactsRequest.AsObject;
   static serializeBinaryToWriter(message: ListPushedArtifactsRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListPushedArtifactsRequest;
-  static deserializeBinaryFromReader(message: ListPushedArtifactsRequest, reader: jspb.BinaryReader): ListPushedArtifactsRequest;
+  static deserializeBinaryFromReader(
+    message: ListPushedArtifactsRequest,
+    reader: jspb.BinaryReader
+  ): ListPushedArtifactsRequest;
 }
 
 export namespace ListPushedArtifactsRequest {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    statusList: Array<StatusFilter.AsObject>,
-    order?: OperationOrder.AsObject,
-    includeBuild: boolean,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    statusList: Array<StatusFilter.AsObject>;
+    order?: OperationOrder.AsObject;
+    includeBuild: boolean;
+  };
 }
 
 export class ListPushedArtifactsResponse extends jspb.Message {
@@ -5267,16 +5368,22 @@ export class ListPushedArtifactsResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListPushedArtifactsResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: ListPushedArtifactsResponse): ListPushedArtifactsResponse.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: ListPushedArtifactsResponse
+  ): ListPushedArtifactsResponse.AsObject;
   static serializeBinaryToWriter(message: ListPushedArtifactsResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListPushedArtifactsResponse;
-  static deserializeBinaryFromReader(message: ListPushedArtifactsResponse, reader: jspb.BinaryReader): ListPushedArtifactsResponse;
+  static deserializeBinaryFromReader(
+    message: ListPushedArtifactsResponse,
+    reader: jspb.BinaryReader
+  ): ListPushedArtifactsResponse;
 }
 
 export namespace ListPushedArtifactsResponse {
   export type AsObject = {
-    artifactsList: Array<PushedArtifact.AsObject>,
-  }
+    artifactsList: Array<PushedArtifact.AsObject>;
+  };
 }
 
 export class PushedArtifact extends jspb.Message {
@@ -5340,19 +5447,19 @@ export class PushedArtifact extends jspb.Message {
 
 export namespace PushedArtifact {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    sequence: number,
-    id: string,
-    status?: Status.AsObject,
-    component?: Component.AsObject,
-    artifact?: Artifact.AsObject,
-    buildId: string,
-    labelsMap: Array<[string, string]>,
-    templateData: Uint8Array | string,
-    build?: Build.AsObject,
-    jobId: string,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    sequence: number;
+    id: string;
+    status?: Status.AsObject;
+    component?: Component.AsObject;
+    artifact?: Artifact.AsObject;
+    buildId: string;
+    labelsMap: Array<[string, string]>;
+    templateData: Uint8Array | string;
+    build?: Build.AsObject;
+    jobId: string;
+  };
 }
 
 export class GetDeploymentRequest extends jspb.Message {
@@ -5369,14 +5476,17 @@ export class GetDeploymentRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetDeploymentRequest): GetDeploymentRequest.AsObject;
   static serializeBinaryToWriter(message: GetDeploymentRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetDeploymentRequest;
-  static deserializeBinaryFromReader(message: GetDeploymentRequest, reader: jspb.BinaryReader): GetDeploymentRequest;
+  static deserializeBinaryFromReader(
+    message: GetDeploymentRequest,
+    reader: jspb.BinaryReader
+  ): GetDeploymentRequest;
 }
 
 export namespace GetDeploymentRequest {
   export type AsObject = {
-    ref?: Ref.Operation.AsObject,
-    loadDetails: Deployment.LoadDetails,
-  }
+    ref?: Ref.Operation.AsObject;
+    loadDetails: Deployment.LoadDetails;
+  };
 }
 
 export class UpsertDeploymentRequest extends jspb.Message {
@@ -5393,16 +5503,19 @@ export class UpsertDeploymentRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertDeploymentRequest): UpsertDeploymentRequest.AsObject;
   static serializeBinaryToWriter(message: UpsertDeploymentRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertDeploymentRequest;
-  static deserializeBinaryFromReader(message: UpsertDeploymentRequest, reader: jspb.BinaryReader): UpsertDeploymentRequest;
+  static deserializeBinaryFromReader(
+    message: UpsertDeploymentRequest,
+    reader: jspb.BinaryReader
+  ): UpsertDeploymentRequest;
 }
 
 export namespace UpsertDeploymentRequest {
   export type AsObject = {
-    deployment?: Deployment.AsObject,
-    autoHostname: UpsertDeploymentRequest.Tristate,
-  }
+    deployment?: Deployment.AsObject;
+    autoHostname: UpsertDeploymentRequest.Tristate;
+  };
 
-  export enum Tristate { 
+  export enum Tristate {
     UNSET = 0,
     TRUE = 1,
     FALSE = 2,
@@ -5420,13 +5533,16 @@ export class UpsertDeploymentResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertDeploymentResponse): UpsertDeploymentResponse.AsObject;
   static serializeBinaryToWriter(message: UpsertDeploymentResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertDeploymentResponse;
-  static deserializeBinaryFromReader(message: UpsertDeploymentResponse, reader: jspb.BinaryReader): UpsertDeploymentResponse;
+  static deserializeBinaryFromReader(
+    message: UpsertDeploymentResponse,
+    reader: jspb.BinaryReader
+  ): UpsertDeploymentResponse;
 }
 
 export namespace UpsertDeploymentResponse {
   export type AsObject = {
-    deployment?: Deployment.AsObject,
-  }
+    deployment?: Deployment.AsObject;
+  };
 }
 
 export class ListDeploymentsRequest extends jspb.Message {
@@ -5461,18 +5577,21 @@ export class ListDeploymentsRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListDeploymentsRequest): ListDeploymentsRequest.AsObject;
   static serializeBinaryToWriter(message: ListDeploymentsRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListDeploymentsRequest;
-  static deserializeBinaryFromReader(message: ListDeploymentsRequest, reader: jspb.BinaryReader): ListDeploymentsRequest;
+  static deserializeBinaryFromReader(
+    message: ListDeploymentsRequest,
+    reader: jspb.BinaryReader
+  ): ListDeploymentsRequest;
 }
 
 export namespace ListDeploymentsRequest {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    statusList: Array<StatusFilter.AsObject>,
-    physicalState: Operation.PhysicalState,
-    order?: OperationOrder.AsObject,
-    loadDetails: Deployment.LoadDetails,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    statusList: Array<StatusFilter.AsObject>;
+    physicalState: Operation.PhysicalState;
+    order?: OperationOrder.AsObject;
+    loadDetails: Deployment.LoadDetails;
+  };
 }
 
 export class ListDeploymentsResponse extends jspb.Message {
@@ -5486,13 +5605,16 @@ export class ListDeploymentsResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListDeploymentsResponse): ListDeploymentsResponse.AsObject;
   static serializeBinaryToWriter(message: ListDeploymentsResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListDeploymentsResponse;
-  static deserializeBinaryFromReader(message: ListDeploymentsResponse, reader: jspb.BinaryReader): ListDeploymentsResponse;
+  static deserializeBinaryFromReader(
+    message: ListDeploymentsResponse,
+    reader: jspb.BinaryReader
+  ): ListDeploymentsResponse;
 }
 
 export namespace ListDeploymentsResponse {
   export type AsObject = {
-    deploymentsList: Array<Deployment.AsObject>,
-  }
+    deploymentsList: Array<Deployment.AsObject>;
+  };
 }
 
 export class Deployment extends jspb.Message {
@@ -5581,26 +5703,26 @@ export class Deployment extends jspb.Message {
 
 export namespace Deployment {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    sequence: number,
-    id: string,
-    url: string,
-    generation?: Generation.AsObject,
-    state: Operation.PhysicalState,
-    status?: Status.AsObject,
-    component?: Component.AsObject,
-    artifactId: string,
-    deployment?: google_protobuf_any_pb.Any.AsObject,
-    labelsMap: Array<[string, string]>,
-    templateData: Uint8Array | string,
-    jobId: string,
-    hasEntrypointConfig: boolean,
-    hasExecPlugin: boolean,
-    hasLogsPlugin: boolean,
-    declaredResourcesList: Array<DeclaredResource.AsObject>,
-    preload?: Deployment.Preload.AsObject,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    sequence: number;
+    id: string;
+    url: string;
+    generation?: Generation.AsObject;
+    state: Operation.PhysicalState;
+    status?: Status.AsObject;
+    component?: Component.AsObject;
+    artifactId: string;
+    deployment?: google_protobuf_any_pb.Any.AsObject;
+    labelsMap: Array<[string, string]>;
+    templateData: Uint8Array | string;
+    jobId: string;
+    hasEntrypointConfig: boolean;
+    hasExecPlugin: boolean;
+    hasLogsPlugin: boolean;
+    declaredResourcesList: Array<DeclaredResource.AsObject>;
+    preload?: Deployment.Preload.AsObject;
+  };
 
   export class Preload extends jspb.Message {
     getArtifact(): PushedArtifact | undefined;
@@ -5626,14 +5748,13 @@ export namespace Deployment {
 
   export namespace Preload {
     export type AsObject = {
-      artifact?: PushedArtifact.AsObject,
-      build?: Build.AsObject,
-      deployUrl: string,
-    }
+      artifact?: PushedArtifact.AsObject;
+      build?: Build.AsObject;
+      deployUrl: string;
+    };
   }
 
-
-  export enum LoadDetails { 
+  export enum LoadDetails {
     NONE = 0,
     ARTIFACT = 1,
     BUILD = 2,
@@ -5656,14 +5777,17 @@ export class DeploymentExpanded extends jspb.Message {
   static toObject(includeInstance: boolean, msg: DeploymentExpanded): DeploymentExpanded.AsObject;
   static serializeBinaryToWriter(message: DeploymentExpanded, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): DeploymentExpanded;
-  static deserializeBinaryFromReader(message: DeploymentExpanded, reader: jspb.BinaryReader): DeploymentExpanded;
+  static deserializeBinaryFromReader(
+    message: DeploymentExpanded,
+    reader: jspb.BinaryReader
+  ): DeploymentExpanded;
 }
 
 export namespace DeploymentExpanded {
   export type AsObject = {
-    deployment?: Deployment.AsObject,
-    latestStatusReport?: StatusReport.AsObject,
-  }
+    deployment?: Deployment.AsObject;
+    latestStatusReport?: StatusReport.AsObject;
+  };
 }
 
 export class ListInstancesRequest extends jspb.Message {
@@ -5685,15 +5809,18 @@ export class ListInstancesRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListInstancesRequest): ListInstancesRequest.AsObject;
   static serializeBinaryToWriter(message: ListInstancesRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListInstancesRequest;
-  static deserializeBinaryFromReader(message: ListInstancesRequest, reader: jspb.BinaryReader): ListInstancesRequest;
+  static deserializeBinaryFromReader(
+    message: ListInstancesRequest,
+    reader: jspb.BinaryReader
+  ): ListInstancesRequest;
 }
 
 export namespace ListInstancesRequest {
   export type AsObject = {
-    deploymentId: string,
-    application?: ListInstancesRequest.Application.AsObject,
-    waitTimeout: string,
-  }
+    deploymentId: string;
+    application?: ListInstancesRequest.Application.AsObject;
+    waitTimeout: string;
+  };
 
   export class Application extends jspb.Message {
     getApplication(): Ref.Application | undefined;
@@ -5716,13 +5843,12 @@ export namespace ListInstancesRequest {
 
   export namespace Application {
     export type AsObject = {
-      application?: Ref.Application.AsObject,
-      workspace?: Ref.Workspace.AsObject,
-    }
+      application?: Ref.Application.AsObject;
+      workspace?: Ref.Workspace.AsObject;
+    };
   }
 
-
-  export enum ScopeCase { 
+  export enum ScopeCase {
     SCOPE_NOT_SET = 0,
     DEPLOYMENT_ID = 1,
     APPLICATION = 2,
@@ -5740,13 +5866,16 @@ export class ListInstancesResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListInstancesResponse): ListInstancesResponse.AsObject;
   static serializeBinaryToWriter(message: ListInstancesResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListInstancesResponse;
-  static deserializeBinaryFromReader(message: ListInstancesResponse, reader: jspb.BinaryReader): ListInstancesResponse;
+  static deserializeBinaryFromReader(
+    message: ListInstancesResponse,
+    reader: jspb.BinaryReader
+  ): ListInstancesResponse;
 }
 
 export namespace ListInstancesResponse {
   export type AsObject = {
-    instancesList: Array<Instance.AsObject>,
-  }
+    instancesList: Array<Instance.AsObject>;
+  };
 }
 
 export class Instance extends jspb.Message {
@@ -5779,14 +5908,14 @@ export class Instance extends jspb.Message {
 
 export namespace Instance {
   export type AsObject = {
-    id: string,
-    deploymentId: string,
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    type: Instance.Type,
-  }
+    id: string;
+    deploymentId: string;
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    type: Instance.Type;
+  };
 
-  export enum Type { 
+  export enum Type {
     LONG_RUNNING = 0,
     ON_DEMAND = 1,
     VIRTUAL = 2,
@@ -5804,13 +5933,16 @@ export class UpsertReleaseRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertReleaseRequest): UpsertReleaseRequest.AsObject;
   static serializeBinaryToWriter(message: UpsertReleaseRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertReleaseRequest;
-  static deserializeBinaryFromReader(message: UpsertReleaseRequest, reader: jspb.BinaryReader): UpsertReleaseRequest;
+  static deserializeBinaryFromReader(
+    message: UpsertReleaseRequest,
+    reader: jspb.BinaryReader
+  ): UpsertReleaseRequest;
 }
 
 export namespace UpsertReleaseRequest {
   export type AsObject = {
-    release?: Release.AsObject,
-  }
+    release?: Release.AsObject;
+  };
 }
 
 export class UpsertReleaseResponse extends jspb.Message {
@@ -5824,13 +5956,16 @@ export class UpsertReleaseResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: UpsertReleaseResponse): UpsertReleaseResponse.AsObject;
   static serializeBinaryToWriter(message: UpsertReleaseResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertReleaseResponse;
-  static deserializeBinaryFromReader(message: UpsertReleaseResponse, reader: jspb.BinaryReader): UpsertReleaseResponse;
+  static deserializeBinaryFromReader(
+    message: UpsertReleaseResponse,
+    reader: jspb.BinaryReader
+  ): UpsertReleaseResponse;
 }
 
 export namespace UpsertReleaseResponse {
   export type AsObject = {
-    release?: Release.AsObject,
-  }
+    release?: Release.AsObject;
+  };
 }
 
 export class GetLatestReleaseRequest extends jspb.Message {
@@ -5852,15 +5987,18 @@ export class GetLatestReleaseRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetLatestReleaseRequest): GetLatestReleaseRequest.AsObject;
   static serializeBinaryToWriter(message: GetLatestReleaseRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetLatestReleaseRequest;
-  static deserializeBinaryFromReader(message: GetLatestReleaseRequest, reader: jspb.BinaryReader): GetLatestReleaseRequest;
+  static deserializeBinaryFromReader(
+    message: GetLatestReleaseRequest,
+    reader: jspb.BinaryReader
+  ): GetLatestReleaseRequest;
 }
 
 export namespace GetLatestReleaseRequest {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    loadDetails: Release.LoadDetails,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    loadDetails: Release.LoadDetails;
+  };
 }
 
 export class ListReleasesRequest extends jspb.Message {
@@ -5895,18 +6033,21 @@ export class ListReleasesRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListReleasesRequest): ListReleasesRequest.AsObject;
   static serializeBinaryToWriter(message: ListReleasesRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListReleasesRequest;
-  static deserializeBinaryFromReader(message: ListReleasesRequest, reader: jspb.BinaryReader): ListReleasesRequest;
+  static deserializeBinaryFromReader(
+    message: ListReleasesRequest,
+    reader: jspb.BinaryReader
+  ): ListReleasesRequest;
 }
 
 export namespace ListReleasesRequest {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    statusList: Array<StatusFilter.AsObject>,
-    physicalState: Operation.PhysicalState,
-    order?: OperationOrder.AsObject,
-    loadDetails: Release.LoadDetails,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    statusList: Array<StatusFilter.AsObject>;
+    physicalState: Operation.PhysicalState;
+    order?: OperationOrder.AsObject;
+    loadDetails: Release.LoadDetails;
+  };
 }
 
 export class ListReleasesResponse extends jspb.Message {
@@ -5920,13 +6061,16 @@ export class ListReleasesResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListReleasesResponse): ListReleasesResponse.AsObject;
   static serializeBinaryToWriter(message: ListReleasesResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListReleasesResponse;
-  static deserializeBinaryFromReader(message: ListReleasesResponse, reader: jspb.BinaryReader): ListReleasesResponse;
+  static deserializeBinaryFromReader(
+    message: ListReleasesResponse,
+    reader: jspb.BinaryReader
+  ): ListReleasesResponse;
 }
 
 export namespace ListReleasesResponse {
   export type AsObject = {
-    releasesList: Array<Release.AsObject>,
-  }
+    releasesList: Array<Release.AsObject>;
+  };
 }
 
 export class GetReleaseRequest extends jspb.Message {
@@ -5943,14 +6087,17 @@ export class GetReleaseRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetReleaseRequest): GetReleaseRequest.AsObject;
   static serializeBinaryToWriter(message: GetReleaseRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetReleaseRequest;
-  static deserializeBinaryFromReader(message: GetReleaseRequest, reader: jspb.BinaryReader): GetReleaseRequest;
+  static deserializeBinaryFromReader(
+    message: GetReleaseRequest,
+    reader: jspb.BinaryReader
+  ): GetReleaseRequest;
 }
 
 export namespace GetReleaseRequest {
   export type AsObject = {
-    ref?: Ref.Operation.AsObject,
-    loadDetails: Release.LoadDetails,
-  }
+    ref?: Ref.Operation.AsObject;
+    loadDetails: Release.LoadDetails;
+  };
 }
 
 export class Release extends jspb.Message {
@@ -6028,23 +6175,23 @@ export class Release extends jspb.Message {
 
 export namespace Release {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    sequence: number,
-    id: string,
-    status?: Status.AsObject,
-    state: Operation.PhysicalState,
-    component?: Component.AsObject,
-    release?: google_protobuf_any_pb.Any.AsObject,
-    deploymentId: string,
-    labelsMap: Array<[string, string]>,
-    templateData: Uint8Array | string,
-    url: string,
-    jobId: string,
-    unimplemented: boolean,
-    declaredResourcesList: Array<DeclaredResource.AsObject>,
-    preload?: Release.Preload.AsObject,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    sequence: number;
+    id: string;
+    status?: Status.AsObject;
+    state: Operation.PhysicalState;
+    component?: Component.AsObject;
+    release?: google_protobuf_any_pb.Any.AsObject;
+    deploymentId: string;
+    labelsMap: Array<[string, string]>;
+    templateData: Uint8Array | string;
+    url: string;
+    jobId: string;
+    unimplemented: boolean;
+    declaredResourcesList: Array<DeclaredResource.AsObject>;
+    preload?: Release.Preload.AsObject;
+  };
 
   export class Preload extends jspb.Message {
     getDeployment(): Deployment | undefined;
@@ -6072,14 +6219,13 @@ export namespace Release {
 
   export namespace Preload {
     export type AsObject = {
-      deployment?: Deployment.AsObject,
-      artifact?: PushedArtifact.AsObject,
-      build?: Build.AsObject,
-    }
+      deployment?: Deployment.AsObject;
+      artifact?: PushedArtifact.AsObject;
+      build?: Build.AsObject;
+    };
   }
 
-
-  export enum LoadDetails { 
+  export enum LoadDetails {
     NONE = 0,
     DEPLOYMENT = 1,
     ARTIFACT = 2,
@@ -6108,9 +6254,9 @@ export class ReleaseExpanded extends jspb.Message {
 
 export namespace ReleaseExpanded {
   export type AsObject = {
-    release?: Release.AsObject,
-    latestStatusReport?: StatusReport.AsObject,
-  }
+    release?: Release.AsObject;
+    latestStatusReport?: StatusReport.AsObject;
+  };
 }
 
 export class UpsertStatusReportRequest extends jspb.Message {
@@ -6121,16 +6267,22 @@ export class UpsertStatusReportRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpsertStatusReportRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: UpsertStatusReportRequest): UpsertStatusReportRequest.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: UpsertStatusReportRequest
+  ): UpsertStatusReportRequest.AsObject;
   static serializeBinaryToWriter(message: UpsertStatusReportRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertStatusReportRequest;
-  static deserializeBinaryFromReader(message: UpsertStatusReportRequest, reader: jspb.BinaryReader): UpsertStatusReportRequest;
+  static deserializeBinaryFromReader(
+    message: UpsertStatusReportRequest,
+    reader: jspb.BinaryReader
+  ): UpsertStatusReportRequest;
 }
 
 export namespace UpsertStatusReportRequest {
   export type AsObject = {
-    statusReport?: StatusReport.AsObject,
-  }
+    statusReport?: StatusReport.AsObject;
+  };
 }
 
 export class UpsertStatusReportResponse extends jspb.Message {
@@ -6141,16 +6293,22 @@ export class UpsertStatusReportResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UpsertStatusReportResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: UpsertStatusReportResponse): UpsertStatusReportResponse.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: UpsertStatusReportResponse
+  ): UpsertStatusReportResponse.AsObject;
   static serializeBinaryToWriter(message: UpsertStatusReportResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): UpsertStatusReportResponse;
-  static deserializeBinaryFromReader(message: UpsertStatusReportResponse, reader: jspb.BinaryReader): UpsertStatusReportResponse;
+  static deserializeBinaryFromReader(
+    message: UpsertStatusReportResponse,
+    reader: jspb.BinaryReader
+  ): UpsertStatusReportResponse;
 }
 
 export namespace UpsertStatusReportResponse {
   export type AsObject = {
-    statusReport?: StatusReport.AsObject,
-  }
+    statusReport?: StatusReport.AsObject;
+  };
 }
 
 export class GetLatestStatusReportRequest extends jspb.Message {
@@ -6166,17 +6324,23 @@ export class GetLatestStatusReportRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetLatestStatusReportRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: GetLatestStatusReportRequest): GetLatestStatusReportRequest.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: GetLatestStatusReportRequest
+  ): GetLatestStatusReportRequest.AsObject;
   static serializeBinaryToWriter(message: GetLatestStatusReportRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetLatestStatusReportRequest;
-  static deserializeBinaryFromReader(message: GetLatestStatusReportRequest, reader: jspb.BinaryReader): GetLatestStatusReportRequest;
+  static deserializeBinaryFromReader(
+    message: GetLatestStatusReportRequest,
+    reader: jspb.BinaryReader
+  ): GetLatestStatusReportRequest;
 }
 
 export namespace GetLatestStatusReportRequest {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+  };
 }
 
 export class ListStatusReportsRequest extends jspb.Message {
@@ -6205,16 +6369,19 @@ export class ListStatusReportsRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ListStatusReportsRequest): ListStatusReportsRequest.AsObject;
   static serializeBinaryToWriter(message: ListStatusReportsRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListStatusReportsRequest;
-  static deserializeBinaryFromReader(message: ListStatusReportsRequest, reader: jspb.BinaryReader): ListStatusReportsRequest;
+  static deserializeBinaryFromReader(
+    message: ListStatusReportsRequest,
+    reader: jspb.BinaryReader
+  ): ListStatusReportsRequest;
 }
 
 export namespace ListStatusReportsRequest {
   export type AsObject = {
-    statusList: Array<StatusFilter.AsObject>,
-    order?: OperationOrder.AsObject,
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-  }
+    statusList: Array<StatusFilter.AsObject>;
+    order?: OperationOrder.AsObject;
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+  };
 }
 
 export class ListStatusReportsResponse extends jspb.Message {
@@ -6225,16 +6392,22 @@ export class ListStatusReportsResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListStatusReportsResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: ListStatusReportsResponse): ListStatusReportsResponse.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: ListStatusReportsResponse
+  ): ListStatusReportsResponse.AsObject;
   static serializeBinaryToWriter(message: ListStatusReportsResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ListStatusReportsResponse;
-  static deserializeBinaryFromReader(message: ListStatusReportsResponse, reader: jspb.BinaryReader): ListStatusReportsResponse;
+  static deserializeBinaryFromReader(
+    message: ListStatusReportsResponse,
+    reader: jspb.BinaryReader
+  ): ListStatusReportsResponse;
 }
 
 export namespace ListStatusReportsResponse {
   export type AsObject = {
-    statusReportsList: Array<StatusReport.AsObject>,
-  }
+    statusReportsList: Array<StatusReport.AsObject>;
+  };
 }
 
 export class GetStatusReportRequest extends jspb.Message {
@@ -6248,13 +6421,16 @@ export class GetStatusReportRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetStatusReportRequest): GetStatusReportRequest.AsObject;
   static serializeBinaryToWriter(message: GetStatusReportRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetStatusReportRequest;
-  static deserializeBinaryFromReader(message: GetStatusReportRequest, reader: jspb.BinaryReader): GetStatusReportRequest;
+  static deserializeBinaryFromReader(
+    message: GetStatusReportRequest,
+    reader: jspb.BinaryReader
+  ): GetStatusReportRequest;
 }
 
 export namespace GetStatusReportRequest {
   export type AsObject = {
-    ref?: Ref.Operation.AsObject,
-  }
+    ref?: Ref.Operation.AsObject;
+  };
 }
 
 export class ExpediteStatusReportRequest extends jspb.Message {
@@ -6277,20 +6453,26 @@ export class ExpediteStatusReportRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ExpediteStatusReportRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: ExpediteStatusReportRequest): ExpediteStatusReportRequest.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: ExpediteStatusReportRequest
+  ): ExpediteStatusReportRequest.AsObject;
   static serializeBinaryToWriter(message: ExpediteStatusReportRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ExpediteStatusReportRequest;
-  static deserializeBinaryFromReader(message: ExpediteStatusReportRequest, reader: jspb.BinaryReader): ExpediteStatusReportRequest;
+  static deserializeBinaryFromReader(
+    message: ExpediteStatusReportRequest,
+    reader: jspb.BinaryReader
+  ): ExpediteStatusReportRequest;
 }
 
 export namespace ExpediteStatusReportRequest {
   export type AsObject = {
-    workspace?: Ref.Workspace.AsObject,
-    deployment?: Ref.Operation.AsObject,
-    release?: Ref.Operation.AsObject,
-  }
+    workspace?: Ref.Workspace.AsObject;
+    deployment?: Ref.Operation.AsObject;
+    release?: Ref.Operation.AsObject;
+  };
 
-  export enum TargetCase { 
+  export enum TargetCase {
     TARGET_NOT_SET = 0,
     DEPLOYMENT = 2,
     RELEASE = 3,
@@ -6303,16 +6485,22 @@ export class ExpediteStatusReportResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ExpediteStatusReportResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: ExpediteStatusReportResponse): ExpediteStatusReportResponse.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: ExpediteStatusReportResponse
+  ): ExpediteStatusReportResponse.AsObject;
   static serializeBinaryToWriter(message: ExpediteStatusReportResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ExpediteStatusReportResponse;
-  static deserializeBinaryFromReader(message: ExpediteStatusReportResponse, reader: jspb.BinaryReader): ExpediteStatusReportResponse;
+  static deserializeBinaryFromReader(
+    message: ExpediteStatusReportResponse,
+    reader: jspb.BinaryReader
+  ): ExpediteStatusReportResponse;
 }
 
 export namespace ExpediteStatusReportResponse {
   export type AsObject = {
-    jobId: string,
-  }
+    jobId: string;
+  };
 }
 
 export class StatusReport extends jspb.Message {
@@ -6380,19 +6568,19 @@ export class StatusReport extends jspb.Message {
 
 export namespace StatusReport {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    workspace?: Ref.Workspace.AsObject,
-    deploymentId: string,
-    releaseId: string,
-    status?: Status.AsObject,
-    id: string,
-    statusReport?: google_protobuf_any_pb.Any.AsObject,
-    health?: StatusReport.Health.AsObject,
-    resourcesHealthList: Array<StatusReport.Health.AsObject>,
-    generatedTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    external: boolean,
-    resourcesList: Array<StatusReport.Resource.AsObject>,
-  }
+    application?: Ref.Application.AsObject;
+    workspace?: Ref.Workspace.AsObject;
+    deploymentId: string;
+    releaseId: string;
+    status?: Status.AsObject;
+    id: string;
+    statusReport?: google_protobuf_any_pb.Any.AsObject;
+    health?: StatusReport.Health.AsObject;
+    resourcesHealthList: Array<StatusReport.Health.AsObject>;
+    generatedTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    external: boolean;
+    resourcesList: Array<StatusReport.Resource.AsObject>;
+  };
 
   export class Resource extends jspb.Message {
     getId(): string;
@@ -6447,21 +6635,20 @@ export namespace StatusReport {
 
   export namespace Resource {
     export type AsObject = {
-      id: string,
-      declaredResource?: Ref.DeclaredResource.AsObject,
-      parentResourceId: string,
-      name: string,
-      platform: string,
-      type: string,
-      platformUrl: string,
-      categoryDisplayHint: ResourceCategoryDisplayHint,
-      createdTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-      stateJson: string,
-      health?: StatusReport.Health.AsObject,
-      healthMessage: string,
-    }
+      id: string;
+      declaredResource?: Ref.DeclaredResource.AsObject;
+      parentResourceId: string;
+      name: string;
+      platform: string;
+      type: string;
+      platformUrl: string;
+      categoryDisplayHint: ResourceCategoryDisplayHint;
+      createdTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+      stateJson: string;
+      health?: StatusReport.Health.AsObject;
+      healthMessage: string;
+    };
   }
-
 
   export class Health extends jspb.Message {
     getHealthStatus(): string;
@@ -6486,15 +6673,14 @@ export namespace StatusReport {
 
   export namespace Health {
     export type AsObject = {
-      healthStatus: string,
-      healthMessage: string,
-      name: string,
-      id: string,
-    }
+      healthStatus: string;
+      healthMessage: string;
+      name: string;
+      id: string;
+    };
   }
 
-
-  export enum TargetIdCase { 
+  export enum TargetIdCase {
     TARGET_ID_NOT_SET = 0,
     DEPLOYMENT_ID = 3,
     RELEASE_ID = 4,
@@ -6520,15 +6706,18 @@ export class GetLogStreamRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetLogStreamRequest): GetLogStreamRequest.AsObject;
   static serializeBinaryToWriter(message: GetLogStreamRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetLogStreamRequest;
-  static deserializeBinaryFromReader(message: GetLogStreamRequest, reader: jspb.BinaryReader): GetLogStreamRequest;
+  static deserializeBinaryFromReader(
+    message: GetLogStreamRequest,
+    reader: jspb.BinaryReader
+  ): GetLogStreamRequest;
 }
 
 export namespace GetLogStreamRequest {
   export type AsObject = {
-    deploymentId: string,
-    application?: GetLogStreamRequest.Application.AsObject,
-    limitBacklog: number,
-  }
+    deploymentId: string;
+    application?: GetLogStreamRequest.Application.AsObject;
+    limitBacklog: number;
+  };
 
   export class Application extends jspb.Message {
     getApplication(): Ref.Application | undefined;
@@ -6551,13 +6740,12 @@ export namespace GetLogStreamRequest {
 
   export namespace Application {
     export type AsObject = {
-      application?: Ref.Application.AsObject,
-      workspace?: Ref.Workspace.AsObject,
-    }
+      application?: Ref.Application.AsObject;
+      workspace?: Ref.Workspace.AsObject;
+    };
   }
 
-
-  export enum ScopeCase { 
+  export enum ScopeCase {
     SCOPE_NOT_SET = 0,
     DEPLOYMENT_ID = 1,
     APPLICATION = 2,
@@ -6586,10 +6774,10 @@ export class LogBatch extends jspb.Message {
 
 export namespace LogBatch {
   export type AsObject = {
-    deploymentId: string,
-    instanceId: string,
-    linesList: Array<LogBatch.Entry.AsObject>,
-  }
+    deploymentId: string;
+    instanceId: string;
+    linesList: Array<LogBatch.Entry.AsObject>;
+  };
 
   export class Entry extends jspb.Message {
     getSource(): LogBatch.Entry.Source;
@@ -6613,17 +6801,16 @@ export namespace LogBatch {
 
   export namespace Entry {
     export type AsObject = {
-      source: LogBatch.Entry.Source,
-      timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-      line: string,
-    }
+      source: LogBatch.Entry.Source;
+      timestamp?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+      line: string;
+    };
 
-    export enum Source { 
+    export enum Source {
       APP = 0,
       ENTRYPOINT = 1,
     }
   }
-
 }
 
 export class ConfigVar extends jspb.Message {
@@ -6678,16 +6865,16 @@ export class ConfigVar extends jspb.Message {
 
 export namespace ConfigVar {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    project?: Ref.Project.AsObject,
-    runner?: Ref.Runner.AsObject,
-    name: string,
-    unset?: google_protobuf_empty_pb.Empty.AsObject,
-    pb_static: string,
-    dynamic?: ConfigVar.DynamicVal.AsObject,
-    internal: boolean,
-    nameIsPath: boolean,
-  }
+    application?: Ref.Application.AsObject;
+    project?: Ref.Project.AsObject;
+    runner?: Ref.Runner.AsObject;
+    name: string;
+    unset?: google_protobuf_empty_pb.Empty.AsObject;
+    pb_static: string;
+    dynamic?: ConfigVar.DynamicVal.AsObject;
+    internal: boolean;
+    nameIsPath: boolean;
+  };
 
   export class DynamicVal extends jspb.Message {
     getFrom(): string;
@@ -6706,20 +6893,19 @@ export namespace ConfigVar {
 
   export namespace DynamicVal {
     export type AsObject = {
-      from: string,
-      configMap: Array<[string, string]>,
-    }
+      from: string;
+      configMap: Array<[string, string]>;
+    };
   }
 
-
-  export enum ScopeCase { 
+  export enum ScopeCase {
     SCOPE_NOT_SET = 0,
     APPLICATION = 3,
     PROJECT = 4,
     RUNNER = 5,
   }
 
-  export enum ValueCase { 
+  export enum ValueCase {
     VALUE_NOT_SET = 0,
     UNSET = 7,
     STATIC = 2,
@@ -6743,8 +6929,8 @@ export class ConfigSetRequest extends jspb.Message {
 
 export namespace ConfigSetRequest {
   export type AsObject = {
-    variablesList: Array<ConfigVar.AsObject>,
-  }
+    variablesList: Array<ConfigVar.AsObject>;
+  };
 }
 
 export class ConfigSetResponse extends jspb.Message {
@@ -6753,12 +6939,14 @@ export class ConfigSetResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ConfigSetResponse): ConfigSetResponse.AsObject;
   static serializeBinaryToWriter(message: ConfigSetResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ConfigSetResponse;
-  static deserializeBinaryFromReader(message: ConfigSetResponse, reader: jspb.BinaryReader): ConfigSetResponse;
+  static deserializeBinaryFromReader(
+    message: ConfigSetResponse,
+    reader: jspb.BinaryReader
+  ): ConfigSetResponse;
 }
 
 export namespace ConfigSetResponse {
-  export type AsObject = {
-  }
+  export type AsObject = {};
 }
 
 export class ConfigGetRequest extends jspb.Message {
@@ -6792,13 +6980,13 @@ export class ConfigGetRequest extends jspb.Message {
 
 export namespace ConfigGetRequest {
   export type AsObject = {
-    application?: Ref.Application.AsObject,
-    project?: Ref.Project.AsObject,
-    runner?: Ref.RunnerId.AsObject,
-    prefix: string,
-  }
+    application?: Ref.Application.AsObject;
+    project?: Ref.Project.AsObject;
+    runner?: Ref.RunnerId.AsObject;
+    prefix: string;
+  };
 
-  export enum ScopeCase { 
+  export enum ScopeCase {
     SCOPE_NOT_SET = 0,
     APPLICATION = 2,
     PROJECT = 3,
@@ -6817,13 +7005,16 @@ export class ConfigGetResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ConfigGetResponse): ConfigGetResponse.AsObject;
   static serializeBinaryToWriter(message: ConfigGetResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ConfigGetResponse;
-  static deserializeBinaryFromReader(message: ConfigGetResponse, reader: jspb.BinaryReader): ConfigGetResponse;
+  static deserializeBinaryFromReader(
+    message: ConfigGetResponse,
+    reader: jspb.BinaryReader
+  ): ConfigGetResponse;
 }
 
 export namespace ConfigGetResponse {
   export type AsObject = {
-    variablesList: Array<ConfigVar.AsObject>,
-  }
+    variablesList: Array<ConfigVar.AsObject>;
+  };
 }
 
 export class ConfigSource extends jspb.Message {
@@ -6856,14 +7047,14 @@ export class ConfigSource extends jspb.Message {
 
 export namespace ConfigSource {
   export type AsObject = {
-    pb_delete: boolean,
-    global?: Ref.Global.AsObject,
-    type: string,
-    configMap: Array<[string, string]>,
-    hash: number,
-  }
+    pb_delete: boolean;
+    global?: Ref.Global.AsObject;
+    type: string;
+    configMap: Array<[string, string]>;
+    hash: number;
+  };
 
-  export enum ScopeCase { 
+  export enum ScopeCase {
     SCOPE_NOT_SET = 0,
     GLOBAL = 50,
   }
@@ -6880,13 +7071,16 @@ export class SetConfigSourceRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: SetConfigSourceRequest): SetConfigSourceRequest.AsObject;
   static serializeBinaryToWriter(message: SetConfigSourceRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): SetConfigSourceRequest;
-  static deserializeBinaryFromReader(message: SetConfigSourceRequest, reader: jspb.BinaryReader): SetConfigSourceRequest;
+  static deserializeBinaryFromReader(
+    message: SetConfigSourceRequest,
+    reader: jspb.BinaryReader
+  ): SetConfigSourceRequest;
 }
 
 export namespace SetConfigSourceRequest {
   export type AsObject = {
-    configSource?: ConfigSource.AsObject,
-  }
+    configSource?: ConfigSource.AsObject;
+  };
 }
 
 export class GetConfigSourceRequest extends jspb.Message {
@@ -6905,16 +7099,19 @@ export class GetConfigSourceRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetConfigSourceRequest): GetConfigSourceRequest.AsObject;
   static serializeBinaryToWriter(message: GetConfigSourceRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetConfigSourceRequest;
-  static deserializeBinaryFromReader(message: GetConfigSourceRequest, reader: jspb.BinaryReader): GetConfigSourceRequest;
+  static deserializeBinaryFromReader(
+    message: GetConfigSourceRequest,
+    reader: jspb.BinaryReader
+  ): GetConfigSourceRequest;
 }
 
 export namespace GetConfigSourceRequest {
   export type AsObject = {
-    global?: Ref.Global.AsObject,
-    type: string,
-  }
+    global?: Ref.Global.AsObject;
+    type: string;
+  };
 
-  export enum ScopeCase { 
+  export enum ScopeCase {
     SCOPE_NOT_SET = 0,
     GLOBAL = 50,
   }
@@ -6931,13 +7128,16 @@ export class GetConfigSourceResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: GetConfigSourceResponse): GetConfigSourceResponse.AsObject;
   static serializeBinaryToWriter(message: GetConfigSourceResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): GetConfigSourceResponse;
-  static deserializeBinaryFromReader(message: GetConfigSourceResponse, reader: jspb.BinaryReader): GetConfigSourceResponse;
+  static deserializeBinaryFromReader(
+    message: GetConfigSourceResponse,
+    reader: jspb.BinaryReader
+  ): GetConfigSourceResponse;
 }
 
 export namespace GetConfigSourceResponse {
   export type AsObject = {
-    configSourcesList: Array<ConfigSource.AsObject>,
-  }
+    configSourcesList: Array<ConfigSource.AsObject>;
+  };
 }
 
 export class ExecStreamRequest extends jspb.Message {
@@ -6968,16 +7168,19 @@ export class ExecStreamRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ExecStreamRequest): ExecStreamRequest.AsObject;
   static serializeBinaryToWriter(message: ExecStreamRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ExecStreamRequest;
-  static deserializeBinaryFromReader(message: ExecStreamRequest, reader: jspb.BinaryReader): ExecStreamRequest;
+  static deserializeBinaryFromReader(
+    message: ExecStreamRequest,
+    reader: jspb.BinaryReader
+  ): ExecStreamRequest;
 }
 
 export namespace ExecStreamRequest {
   export type AsObject = {
-    start?: ExecStreamRequest.Start.AsObject,
-    input?: ExecStreamRequest.Input.AsObject,
-    winch?: ExecStreamRequest.WindowSize.AsObject,
-    inputEof?: google_protobuf_empty_pb.Empty.AsObject,
-  }
+    start?: ExecStreamRequest.Start.AsObject;
+    input?: ExecStreamRequest.Input.AsObject;
+    winch?: ExecStreamRequest.WindowSize.AsObject;
+    inputEof?: google_protobuf_empty_pb.Empty.AsObject;
+  };
 
   export class Start extends jspb.Message {
     getDeploymentId(): string;
@@ -7008,19 +7211,18 @@ export namespace ExecStreamRequest {
 
   export namespace Start {
     export type AsObject = {
-      deploymentId: string,
-      instanceId: string,
-      argsList: Array<string>,
-      pty?: ExecStreamRequest.PTY.AsObject,
-    }
+      deploymentId: string;
+      instanceId: string;
+      argsList: Array<string>;
+      pty?: ExecStreamRequest.PTY.AsObject;
+    };
 
-    export enum TargetCase { 
+    export enum TargetCase {
       TARGET_NOT_SET = 0,
       DEPLOYMENT_ID = 1,
       INSTANCE_ID = 4,
     }
   }
-
 
   export class Input extends jspb.Message {
     getData(): Uint8Array | string;
@@ -7038,10 +7240,9 @@ export namespace ExecStreamRequest {
 
   export namespace Input {
     export type AsObject = {
-      data: Uint8Array | string,
-    }
+      data: Uint8Array | string;
+    };
   }
-
 
   export class PTY extends jspb.Message {
     getEnable(): boolean;
@@ -7065,12 +7266,11 @@ export namespace ExecStreamRequest {
 
   export namespace PTY {
     export type AsObject = {
-      enable: boolean,
-      term: string,
-      windowSize?: ExecStreamRequest.WindowSize.AsObject,
-    }
+      enable: boolean;
+      term: string;
+      windowSize?: ExecStreamRequest.WindowSize.AsObject;
+    };
   }
-
 
   export class WindowSize extends jspb.Message {
     getRows(): number;
@@ -7095,15 +7295,14 @@ export namespace ExecStreamRequest {
 
   export namespace WindowSize {
     export type AsObject = {
-      rows: number,
-      cols: number,
-      width: number,
-      height: number,
-    }
+      rows: number;
+      cols: number;
+      width: number;
+      height: number;
+    };
   }
 
-
-  export enum EventCase { 
+  export enum EventCase {
     EVENT_NOT_SET = 0,
     START = 1,
     INPUT = 2,
@@ -7135,15 +7334,18 @@ export class ExecStreamResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: ExecStreamResponse): ExecStreamResponse.AsObject;
   static serializeBinaryToWriter(message: ExecStreamResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ExecStreamResponse;
-  static deserializeBinaryFromReader(message: ExecStreamResponse, reader: jspb.BinaryReader): ExecStreamResponse;
+  static deserializeBinaryFromReader(
+    message: ExecStreamResponse,
+    reader: jspb.BinaryReader
+  ): ExecStreamResponse;
 }
 
 export namespace ExecStreamResponse {
   export type AsObject = {
-    open?: ExecStreamResponse.Open.AsObject,
-    output?: ExecStreamResponse.Output.AsObject,
-    exit?: ExecStreamResponse.Exit.AsObject,
-  }
+    open?: ExecStreamResponse.Open.AsObject;
+    output?: ExecStreamResponse.Output.AsObject;
+    exit?: ExecStreamResponse.Exit.AsObject;
+  };
 
   export class Open extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -7155,10 +7357,8 @@ export namespace ExecStreamResponse {
   }
 
   export namespace Open {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
-
 
   export class Exit extends jspb.Message {
     getCode(): number;
@@ -7174,10 +7374,9 @@ export namespace ExecStreamResponse {
 
   export namespace Exit {
     export type AsObject = {
-      code: number,
-    }
+      code: number;
+    };
   }
-
 
   export class Output extends jspb.Message {
     getChannel(): ExecStreamResponse.Output.Channel;
@@ -7198,19 +7397,18 @@ export namespace ExecStreamResponse {
 
   export namespace Output {
     export type AsObject = {
-      channel: ExecStreamResponse.Output.Channel,
-      data: Uint8Array | string,
-    }
+      channel: ExecStreamResponse.Output.Channel;
+      data: Uint8Array | string;
+    };
 
-    export enum Channel { 
+    export enum Channel {
       UNKNOWN = 0,
       STDOUT = 1,
       STDERR = 2,
     }
   }
 
-
-  export enum EventCase { 
+  export enum EventCase {
     EVENT_NOT_SET = 0,
     OPEN = 3,
     OUTPUT = 1,
@@ -7236,16 +7434,19 @@ export class EntrypointConfigRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: EntrypointConfigRequest): EntrypointConfigRequest.AsObject;
   static serializeBinaryToWriter(message: EntrypointConfigRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): EntrypointConfigRequest;
-  static deserializeBinaryFromReader(message: EntrypointConfigRequest, reader: jspb.BinaryReader): EntrypointConfigRequest;
+  static deserializeBinaryFromReader(
+    message: EntrypointConfigRequest,
+    reader: jspb.BinaryReader
+  ): EntrypointConfigRequest;
 }
 
 export namespace EntrypointConfigRequest {
   export type AsObject = {
-    deploymentId: string,
-    instanceId: string,
-    type: Instance.Type,
-    disableExec: boolean,
-  }
+    deploymentId: string;
+    instanceId: string;
+    type: Instance.Type;
+    disableExec: boolean;
+  };
 }
 
 export class EntrypointConfigResponse extends jspb.Message {
@@ -7259,13 +7460,16 @@ export class EntrypointConfigResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: EntrypointConfigResponse): EntrypointConfigResponse.AsObject;
   static serializeBinaryToWriter(message: EntrypointConfigResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): EntrypointConfigResponse;
-  static deserializeBinaryFromReader(message: EntrypointConfigResponse, reader: jspb.BinaryReader): EntrypointConfigResponse;
+  static deserializeBinaryFromReader(
+    message: EntrypointConfigResponse,
+    reader: jspb.BinaryReader
+  ): EntrypointConfigResponse;
 }
 
 export namespace EntrypointConfigResponse {
   export type AsObject = {
-    config?: EntrypointConfig.AsObject,
-  }
+    config?: EntrypointConfig.AsObject;
+  };
 }
 
 export class EntrypointConfig extends jspb.Message {
@@ -7307,13 +7511,13 @@ export class EntrypointConfig extends jspb.Message {
 
 export namespace EntrypointConfig {
   export type AsObject = {
-    execList: Array<EntrypointConfig.Exec.AsObject>,
-    envVarsList: Array<ConfigVar.AsObject>,
-    configSourcesList: Array<ConfigSource.AsObject>,
-    fileChangeSignal: string,
-    urlService?: EntrypointConfig.URLService.AsObject,
-    deployment?: EntrypointConfig.DeploymentInfo.AsObject,
-  }
+    execList: Array<EntrypointConfig.Exec.AsObject>;
+    envVarsList: Array<ConfigVar.AsObject>;
+    configSourcesList: Array<ConfigSource.AsObject>;
+    fileChangeSignal: string;
+    urlService?: EntrypointConfig.URLService.AsObject;
+    deployment?: EntrypointConfig.DeploymentInfo.AsObject;
+  };
 
   export class Exec extends jspb.Message {
     getIndex(): number;
@@ -7339,12 +7543,11 @@ export namespace EntrypointConfig {
 
   export namespace Exec {
     export type AsObject = {
-      index: number,
-      argsList: Array<string>,
-      pty?: ExecStreamRequest.PTY.AsObject,
-    }
+      index: number;
+      argsList: Array<string>;
+      pty?: ExecStreamRequest.PTY.AsObject;
+    };
   }
-
 
   export class URLService extends jspb.Message {
     getControlAddr(): string;
@@ -7366,12 +7569,11 @@ export namespace EntrypointConfig {
 
   export namespace URLService {
     export type AsObject = {
-      controlAddr: string,
-      token: string,
-      labels: string,
-    }
+      controlAddr: string;
+      token: string;
+      labels: string;
+    };
   }
-
 
   export class DeploymentInfo extends jspb.Message {
     getComponent(): Component | undefined;
@@ -7392,11 +7594,10 @@ export namespace EntrypointConfig {
 
   export namespace DeploymentInfo {
     export type AsObject = {
-      component?: Component.AsObject,
-      labelsMap: Array<[string, string]>,
-    }
+      component?: Component.AsObject;
+      labelsMap: Array<[string, string]>;
+    };
   }
-
 }
 
 export class EntrypointLogBatch extends jspb.Message {
@@ -7413,14 +7614,17 @@ export class EntrypointLogBatch extends jspb.Message {
   static toObject(includeInstance: boolean, msg: EntrypointLogBatch): EntrypointLogBatch.AsObject;
   static serializeBinaryToWriter(message: EntrypointLogBatch, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): EntrypointLogBatch;
-  static deserializeBinaryFromReader(message: EntrypointLogBatch, reader: jspb.BinaryReader): EntrypointLogBatch;
+  static deserializeBinaryFromReader(
+    message: EntrypointLogBatch,
+    reader: jspb.BinaryReader
+  ): EntrypointLogBatch;
 }
 
 export namespace EntrypointLogBatch {
   export type AsObject = {
-    instanceId: string,
-    linesList: Array<LogBatch.Entry.AsObject>,
-  }
+    instanceId: string;
+    linesList: Array<LogBatch.Entry.AsObject>;
+  };
 }
 
 export class EntrypointExecRequest extends jspb.Message {
@@ -7451,16 +7655,19 @@ export class EntrypointExecRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: EntrypointExecRequest): EntrypointExecRequest.AsObject;
   static serializeBinaryToWriter(message: EntrypointExecRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): EntrypointExecRequest;
-  static deserializeBinaryFromReader(message: EntrypointExecRequest, reader: jspb.BinaryReader): EntrypointExecRequest;
+  static deserializeBinaryFromReader(
+    message: EntrypointExecRequest,
+    reader: jspb.BinaryReader
+  ): EntrypointExecRequest;
 }
 
 export namespace EntrypointExecRequest {
   export type AsObject = {
-    open?: EntrypointExecRequest.Open.AsObject,
-    exit?: EntrypointExecRequest.Exit.AsObject,
-    output?: EntrypointExecRequest.Output.AsObject,
-    error?: EntrypointExecRequest.Error.AsObject,
-  }
+    open?: EntrypointExecRequest.Open.AsObject;
+    exit?: EntrypointExecRequest.Exit.AsObject;
+    output?: EntrypointExecRequest.Output.AsObject;
+    error?: EntrypointExecRequest.Error.AsObject;
+  };
 
   export class Open extends jspb.Message {
     getInstanceId(): string;
@@ -7479,11 +7686,10 @@ export namespace EntrypointExecRequest {
 
   export namespace Open {
     export type AsObject = {
-      instanceId: string,
-      index: number,
-    }
+      instanceId: string;
+      index: number;
+    };
   }
-
 
   export class Exit extends jspb.Message {
     getCode(): number;
@@ -7499,10 +7705,9 @@ export namespace EntrypointExecRequest {
 
   export namespace Exit {
     export type AsObject = {
-      code: number,
-    }
+      code: number;
+    };
   }
-
 
   export class Output extends jspb.Message {
     getChannel(): EntrypointExecRequest.Output.Channel;
@@ -7523,17 +7728,16 @@ export namespace EntrypointExecRequest {
 
   export namespace Output {
     export type AsObject = {
-      channel: EntrypointExecRequest.Output.Channel,
-      data: Uint8Array | string,
-    }
+      channel: EntrypointExecRequest.Output.Channel;
+      data: Uint8Array | string;
+    };
 
-    export enum Channel { 
+    export enum Channel {
       UNKNOWN = 0,
       STDOUT = 1,
       STDERR = 2,
     }
   }
-
 
   export class Error extends jspb.Message {
     getError(): google_rpc_status_pb.Status | undefined;
@@ -7551,12 +7755,11 @@ export namespace EntrypointExecRequest {
 
   export namespace Error {
     export type AsObject = {
-      error?: google_rpc_status_pb.Status.AsObject,
-    }
+      error?: google_rpc_status_pb.Status.AsObject;
+    };
   }
 
-
-  export enum EventCase { 
+  export enum EventCase {
     EVENT_NOT_SET = 0,
     OPEN = 1,
     EXIT = 2,
@@ -7591,18 +7794,21 @@ export class EntrypointExecResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: EntrypointExecResponse): EntrypointExecResponse.AsObject;
   static serializeBinaryToWriter(message: EntrypointExecResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): EntrypointExecResponse;
-  static deserializeBinaryFromReader(message: EntrypointExecResponse, reader: jspb.BinaryReader): EntrypointExecResponse;
+  static deserializeBinaryFromReader(
+    message: EntrypointExecResponse,
+    reader: jspb.BinaryReader
+  ): EntrypointExecResponse;
 }
 
 export namespace EntrypointExecResponse {
   export type AsObject = {
-    input: Uint8Array | string,
-    inputEof?: google_protobuf_empty_pb.Empty.AsObject,
-    winch?: ExecStreamRequest.WindowSize.AsObject,
-    opened: boolean,
-  }
+    input: Uint8Array | string;
+    inputEof?: google_protobuf_empty_pb.Empty.AsObject;
+    winch?: ExecStreamRequest.WindowSize.AsObject;
+    opened: boolean;
+  };
 
-  export enum EventCase { 
+  export enum EventCase {
     EVENT_NOT_SET = 0,
     INPUT = 1,
     INPUT_EOF = 4,
@@ -7638,11 +7844,11 @@ export class TokenTransport extends jspb.Message {
 
 export namespace TokenTransport {
   export type AsObject = {
-    body: Uint8Array | string,
-    signature: Uint8Array | string,
-    keyId: string,
-    metadataMap: Array<[string, string]>,
-  }
+    body: Uint8Array | string;
+    signature: Uint8Array | string;
+    keyId: string;
+    metadataMap: Array<[string, string]>;
+  };
 }
 
 export class Token extends jspb.Message {
@@ -7697,16 +7903,16 @@ export class Token extends jspb.Message {
 
 export namespace Token {
   export type AsObject = {
-    accessorId: Uint8Array | string,
-    validUntil?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    issuedTime?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    login?: Token.Login.AsObject,
-    invite?: Token.Invite.AsObject,
-    unusedUser: string,
-    unusedLogin: boolean,
-    unusedInvite: boolean,
-    unusedEntrypoint?: Token.Entrypoint.AsObject,
-  }
+    accessorId: Uint8Array | string;
+    validUntil?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    issuedTime?: google_protobuf_timestamp_pb.Timestamp.AsObject;
+    login?: Token.Login.AsObject;
+    invite?: Token.Invite.AsObject;
+    unusedUser: string;
+    unusedLogin: boolean;
+    unusedInvite: boolean;
+    unusedEntrypoint?: Token.Entrypoint.AsObject;
+  };
 
   export class Login extends jspb.Message {
     getUserId(): string;
@@ -7727,11 +7933,10 @@ export namespace Token {
 
   export namespace Login {
     export type AsObject = {
-      userId: string,
-      entrypoint?: Token.Entrypoint.AsObject,
-    }
+      userId: string;
+      entrypoint?: Token.Entrypoint.AsObject;
+    };
   }
-
 
   export class Invite extends jspb.Message {
     getFromUserId(): string;
@@ -7757,10 +7962,10 @@ export namespace Token {
 
   export namespace Invite {
     export type AsObject = {
-      fromUserId: string,
-      login?: Token.Login.AsObject,
-      signup?: Token.Invite.Signup.AsObject,
-    }
+      fromUserId: string;
+      login?: Token.Login.AsObject;
+      signup?: Token.Invite.Signup.AsObject;
+    };
 
     export class Signup extends jspb.Message {
       getInitialUsername(): string;
@@ -7776,12 +7981,10 @@ export namespace Token {
 
     export namespace Signup {
       export type AsObject = {
-        initialUsername: string,
-      }
+        initialUsername: string;
+      };
     }
-
   }
-
 
   export class Entrypoint extends jspb.Message {
     getDeploymentId(): string;
@@ -7797,12 +8000,11 @@ export namespace Token {
 
   export namespace Entrypoint {
     export type AsObject = {
-      deploymentId: string,
-    }
+      deploymentId: string;
+    };
   }
 
-
-  export enum KindCase { 
+  export enum KindCase {
     KIND_NOT_SET = 0,
     LOGIN = 8,
     INVITE = 9,
@@ -7828,9 +8030,9 @@ export class HMACKey extends jspb.Message {
 
 export namespace HMACKey {
   export type AsObject = {
-    id: string,
-    key: Uint8Array | string,
-  }
+    id: string;
+    key: Uint8Array | string;
+  };
 }
 
 export class DecodeTokenRequest extends jspb.Message {
@@ -7842,13 +8044,16 @@ export class DecodeTokenRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: DecodeTokenRequest): DecodeTokenRequest.AsObject;
   static serializeBinaryToWriter(message: DecodeTokenRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): DecodeTokenRequest;
-  static deserializeBinaryFromReader(message: DecodeTokenRequest, reader: jspb.BinaryReader): DecodeTokenRequest;
+  static deserializeBinaryFromReader(
+    message: DecodeTokenRequest,
+    reader: jspb.BinaryReader
+  ): DecodeTokenRequest;
 }
 
 export namespace DecodeTokenRequest {
   export type AsObject = {
-    token: string,
-  }
+    token: string;
+  };
 }
 
 export class DecodeTokenResponse extends jspb.Message {
@@ -7867,14 +8072,17 @@ export class DecodeTokenResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: DecodeTokenResponse): DecodeTokenResponse.AsObject;
   static serializeBinaryToWriter(message: DecodeTokenResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): DecodeTokenResponse;
-  static deserializeBinaryFromReader(message: DecodeTokenResponse, reader: jspb.BinaryReader): DecodeTokenResponse;
+  static deserializeBinaryFromReader(
+    message: DecodeTokenResponse,
+    reader: jspb.BinaryReader
+  ): DecodeTokenResponse;
 }
 
 export namespace DecodeTokenResponse {
   export type AsObject = {
-    token?: Token.AsObject,
-    transport?: TokenTransport.AsObject,
-  }
+    token?: Token.AsObject;
+    transport?: TokenTransport.AsObject;
+  };
 }
 
 export class LoginTokenRequest extends jspb.Message {
@@ -7891,14 +8099,17 @@ export class LoginTokenRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: LoginTokenRequest): LoginTokenRequest.AsObject;
   static serializeBinaryToWriter(message: LoginTokenRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): LoginTokenRequest;
-  static deserializeBinaryFromReader(message: LoginTokenRequest, reader: jspb.BinaryReader): LoginTokenRequest;
+  static deserializeBinaryFromReader(
+    message: LoginTokenRequest,
+    reader: jspb.BinaryReader
+  ): LoginTokenRequest;
 }
 
 export namespace LoginTokenRequest {
   export type AsObject = {
-    duration: string,
-    user?: Ref.User.AsObject,
-  }
+    duration: string;
+    user?: Ref.User.AsObject;
+  };
 }
 
 export class InviteTokenRequest extends jspb.Message {
@@ -7925,16 +8136,19 @@ export class InviteTokenRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: InviteTokenRequest): InviteTokenRequest.AsObject;
   static serializeBinaryToWriter(message: InviteTokenRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): InviteTokenRequest;
-  static deserializeBinaryFromReader(message: InviteTokenRequest, reader: jspb.BinaryReader): InviteTokenRequest;
+  static deserializeBinaryFromReader(
+    message: InviteTokenRequest,
+    reader: jspb.BinaryReader
+  ): InviteTokenRequest;
 }
 
 export namespace InviteTokenRequest {
   export type AsObject = {
-    duration: string,
-    login?: Token.Login.AsObject,
-    signup?: Token.Invite.Signup.AsObject,
-    unusedEntrypoint?: Token.Entrypoint.AsObject,
-  }
+    duration: string;
+    login?: Token.Login.AsObject;
+    signup?: Token.Invite.Signup.AsObject;
+    unusedEntrypoint?: Token.Entrypoint.AsObject;
+  };
 }
 
 export class NewTokenResponse extends jspb.Message {
@@ -7951,8 +8165,8 @@ export class NewTokenResponse extends jspb.Message {
 
 export namespace NewTokenResponse {
   export type AsObject = {
-    token: string,
-  }
+    token: string;
+  };
 }
 
 export class ConvertInviteTokenRequest extends jspb.Message {
@@ -7961,16 +8175,22 @@ export class ConvertInviteTokenRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ConvertInviteTokenRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: ConvertInviteTokenRequest): ConvertInviteTokenRequest.AsObject;
+  static toObject(
+    includeInstance: boolean,
+    msg: ConvertInviteTokenRequest
+  ): ConvertInviteTokenRequest.AsObject;
   static serializeBinaryToWriter(message: ConvertInviteTokenRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): ConvertInviteTokenRequest;
-  static deserializeBinaryFromReader(message: ConvertInviteTokenRequest, reader: jspb.BinaryReader): ConvertInviteTokenRequest;
+  static deserializeBinaryFromReader(
+    message: ConvertInviteTokenRequest,
+    reader: jspb.BinaryReader
+  ): ConvertInviteTokenRequest;
 }
 
 export namespace ConvertInviteTokenRequest {
   export type AsObject = {
-    token: string,
-  }
+    token: string;
+  };
 }
 
 export class CreateSnapshotResponse extends jspb.Message {
@@ -7991,14 +8211,17 @@ export class CreateSnapshotResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: CreateSnapshotResponse): CreateSnapshotResponse.AsObject;
   static serializeBinaryToWriter(message: CreateSnapshotResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): CreateSnapshotResponse;
-  static deserializeBinaryFromReader(message: CreateSnapshotResponse, reader: jspb.BinaryReader): CreateSnapshotResponse;
+  static deserializeBinaryFromReader(
+    message: CreateSnapshotResponse,
+    reader: jspb.BinaryReader
+  ): CreateSnapshotResponse;
 }
 
 export namespace CreateSnapshotResponse {
   export type AsObject = {
-    open?: CreateSnapshotResponse.Open.AsObject,
-    chunk: Uint8Array | string,
-  }
+    open?: CreateSnapshotResponse.Open.AsObject;
+    chunk: Uint8Array | string;
+  };
 
   export class Open extends jspb.Message {
     serializeBinary(): Uint8Array;
@@ -8010,12 +8233,10 @@ export namespace CreateSnapshotResponse {
   }
 
   export namespace Open {
-    export type AsObject = {
-    }
+    export type AsObject = {};
   }
 
-
-  export enum EventCase { 
+  export enum EventCase {
     EVENT_NOT_SET = 0,
     OPEN = 1,
     CHUNK = 2,
@@ -8040,14 +8261,17 @@ export class RestoreSnapshotRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: RestoreSnapshotRequest): RestoreSnapshotRequest.AsObject;
   static serializeBinaryToWriter(message: RestoreSnapshotRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): RestoreSnapshotRequest;
-  static deserializeBinaryFromReader(message: RestoreSnapshotRequest, reader: jspb.BinaryReader): RestoreSnapshotRequest;
+  static deserializeBinaryFromReader(
+    message: RestoreSnapshotRequest,
+    reader: jspb.BinaryReader
+  ): RestoreSnapshotRequest;
 }
 
 export namespace RestoreSnapshotRequest {
   export type AsObject = {
-    open?: RestoreSnapshotRequest.Open.AsObject,
-    chunk: Uint8Array | string,
-  }
+    open?: RestoreSnapshotRequest.Open.AsObject;
+    chunk: Uint8Array | string;
+  };
 
   export class Open extends jspb.Message {
     getExit(): boolean;
@@ -8063,12 +8287,11 @@ export namespace RestoreSnapshotRequest {
 
   export namespace Open {
     export type AsObject = {
-      exit: boolean,
-    }
+      exit: boolean;
+    };
   }
 
-
-  export enum EventCase { 
+  export enum EventCase {
     EVENT_NOT_SET = 0,
     OPEN = 1,
     CHUNK = 2,
@@ -8085,8 +8308,7 @@ export class Snapshot extends jspb.Message {
 }
 
 export namespace Snapshot {
-  export type AsObject = {
-  }
+  export type AsObject = {};
 
   export class Header extends jspb.Message {
     getVersion(): VersionInfo | undefined;
@@ -8107,16 +8329,15 @@ export namespace Snapshot {
 
   export namespace Header {
     export type AsObject = {
-      version?: VersionInfo.AsObject,
-      format: Snapshot.Header.Format,
-    }
+      version?: VersionInfo.AsObject;
+      format: Snapshot.Header.Format;
+    };
 
-    export enum Format { 
+    export enum Format {
       UNKNOWN = 0,
       BOLT = 1,
     }
   }
-
 
   export class Trailer extends jspb.Message {
     getSha256(): string;
@@ -8134,15 +8355,14 @@ export namespace Snapshot {
 
   export namespace Trailer {
     export type AsObject = {
-      sha256: string,
-    }
+      sha256: string;
+    };
 
-    export enum ChecksumCase { 
+    export enum ChecksumCase {
       CHECKSUM_NOT_SET = 0,
       SHA256 = 1,
     }
   }
-
 
   export class BoltChunk extends jspb.Message {
     getBucket(): string;
@@ -8164,12 +8384,11 @@ export namespace Snapshot {
 
   export namespace BoltChunk {
     export type AsObject = {
-      bucket: string,
-      itemsMap: Array<[string, Uint8Array | string]>,
-      pb_final: boolean,
-    }
+      bucket: string;
+      itemsMap: Array<[string, Uint8Array | string]>;
+      pb_final: boolean;
+    };
   }
-
 }
 
 export class WaypointHclFmtRequest extends jspb.Message {
@@ -8183,13 +8402,16 @@ export class WaypointHclFmtRequest extends jspb.Message {
   static toObject(includeInstance: boolean, msg: WaypointHclFmtRequest): WaypointHclFmtRequest.AsObject;
   static serializeBinaryToWriter(message: WaypointHclFmtRequest, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): WaypointHclFmtRequest;
-  static deserializeBinaryFromReader(message: WaypointHclFmtRequest, reader: jspb.BinaryReader): WaypointHclFmtRequest;
+  static deserializeBinaryFromReader(
+    message: WaypointHclFmtRequest,
+    reader: jspb.BinaryReader
+  ): WaypointHclFmtRequest;
 }
 
 export namespace WaypointHclFmtRequest {
   export type AsObject = {
-    waypointHcl: Uint8Array | string,
-  }
+    waypointHcl: Uint8Array | string;
+  };
 }
 
 export class WaypointHclFmtResponse extends jspb.Message {
@@ -8203,16 +8425,19 @@ export class WaypointHclFmtResponse extends jspb.Message {
   static toObject(includeInstance: boolean, msg: WaypointHclFmtResponse): WaypointHclFmtResponse.AsObject;
   static serializeBinaryToWriter(message: WaypointHclFmtResponse, writer: jspb.BinaryWriter): void;
   static deserializeBinary(bytes: Uint8Array): WaypointHclFmtResponse;
-  static deserializeBinaryFromReader(message: WaypointHclFmtResponse, reader: jspb.BinaryReader): WaypointHclFmtResponse;
+  static deserializeBinaryFromReader(
+    message: WaypointHclFmtResponse,
+    reader: jspb.BinaryReader
+  ): WaypointHclFmtResponse;
 }
 
 export namespace WaypointHclFmtResponse {
   export type AsObject = {
-    waypointHcl: Uint8Array | string,
-  }
+    waypointHcl: Uint8Array | string;
+  };
 }
 
-export enum ResourceCategoryDisplayHint { 
+export enum ResourceCategoryDisplayHint {
   UNKNOWN = 0,
   OTHER = 1,
   INSTANCE = 2,
