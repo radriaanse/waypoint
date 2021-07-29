@@ -4,9 +4,8 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import ApiService from 'waypoint/services/api';
 import { Deployment, Ref, ExpediteStatusReportRequest, GetJobStreamRequest, StatusReport } from 'waypoint-pb';
-import { Status } from 'api-common-protos/google/rpc/status_pb';
 
-interface DeploymentDetailsArgs {
+interface StatusReportBarArgs {
   model: Deployment.AsObject & WithStatusReport;
 }
 
@@ -14,7 +13,7 @@ interface WithStatusReport {
   statusReport?: StatusReport.AsObject;
 }
 
-export default class DeploymentDetails extends Component<DeploymentDetailsArgs> {
+export default class StatusReportBar extends Component<StatusReportBarArgs> {
   @service api!: ApiService;
   @tracked isRefreshRunning = false;
   @tracked _statusReport?: StatusReport.AsObject;
@@ -49,9 +48,9 @@ export default class DeploymentDetails extends Component<DeploymentDetailsArgs> 
         },
       };
 
-      // let streamReq = new GetJobStreamRequest();
-      // streamReq.setJobId(resp.id);
-      // let jobStream = await this.api.client.getJobStream(streamReq);
+      let streamReq = new GetJobStreamRequest();
+      streamReq.setJobId(resp.id);
+      let jobStream = await this.api.client.getJobStream(streamReq);
     }
   }
 }
