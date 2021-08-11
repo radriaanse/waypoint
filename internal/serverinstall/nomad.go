@@ -34,6 +34,12 @@ type nomadConfig struct {
 	serverResourcesMemory string `hcl:"server_resources_memory,optional"`
 	runnerResourcesCPU    string `hcl:"runner_resources_cpu,optional"`
 	runnerResourcesMemory string `hcl:"runner_resources_memory,optional"`
+
+	// volumeType is either host or CSI
+	volumeType string `hcl:"volume_type,optional"`
+
+	// volumeHostSource is the name of the volume as defined in the client config
+	volumeHostSource string `hcl:"volume_name,optional"`
 }
 
 var (
@@ -41,6 +47,8 @@ var (
 	// through config flags at install
 	defaultResourcesCPU    = 200
 	defaultResourcesMemory = 600
+
+	defaultVolumeName = "server_data"
 )
 
 // Install is a method of NomadInstaller and implements the Installer interface to
@@ -641,19 +649,44 @@ func waypointNomadJob(c nomadConfig) *api.Job {
 			},
 		},
 	}
-	// Preserve disk, otherwise upgrades will destroy previous allocation and the
-	// disk along with it
-	tg.EphemeralDisk = &api.EphemeralDisk{
-		Sticky:  &[]bool{true}[0],
-		Migrate: &[]bool{true}[0],
+
+	// Volume stuff
+	var hasVolume bool
+	var dbPath string
+
+	switch volumeType := c.volumeType; volumeType {
+	case "host":
+		// Host volumes must exist beforehand on the client and should be
+		// referenced by their configured name
+		dbPath = "/data"
+		hasVolume = true
+
+		tg.Volumes = map[string]*api.VolumeRequest{
+			defaultVolumeName: {
+				Type:   volumeType,
+				Source: c.volumeHostSource,
+			},
+		}
+	case "csi":
+		// TODO: CSI volume support
+	default:
+		// Allocate an ephemeral disk to preserve the data on a best-effort
+		// basis
+		dbPath = "/alloc/data"
+
+		tg.EphemeralDisk = &api.EphemeralDisk{
+			Sticky:  &[]bool{true}[0],
+			Migrate: &[]bool{true}[0],
+		}
 	}
+
 	job.AddTaskGroup(tg)
 
 	task := api.NewTask("server", "docker")
 	task.Config = map[string]interface{}{
 		"image":          c.serverImage,
 		"ports":          []string{"server", "ui"},
-		"args":           []string{"server", "run", "-accept-tos", "-vvv", "-db=/alloc/data/data.db", fmt.Sprintf("-listen-grpc=0.0.0.0:%s", defaultGrpcPort), fmt.Sprintf("-listen-http=0.0.0.0:%s", defaultHttpPort)},
+		"args":           []string{"server", "run", "-accept-tos", "-vvv", fmt.Sprintf("-db=%s/data.db", dbPath), fmt.Sprintf("-listen-grpc=0.0.0.0:%s", defaultGrpcPort), fmt.Sprintf("-listen-http=0.0.0.0:%s", defaultHttpPort)},
 		"auth_soft_fail": c.authSoftFail,
 	}
 	task.Env = map[string]string{
@@ -674,6 +707,16 @@ func waypointNomadJob(c nomadConfig) *api.Job {
 		CPU:      &cpu,
 		MemoryMB: &mem,
 	}
+
+	if hasVolume {
+		task.VolumeMounts = []*api.VolumeMount{
+			{
+				Volume:      &defaultVolumeName,
+				Destination: &dbPath,
+			},
+		}
+	}
+
 	tg.AddTask(task)
 
 	return job
@@ -848,6 +891,20 @@ func (i *NomadInstaller) InstallFlags(set *flag.Set) {
 		Target:  &i.config.serverImage,
 		Usage:   "Docker image for the Waypoint server.",
 		Default: defaultServerImage,
+	})
+
+	set.StringVar(&flag.StringVar{
+		Name:    "nomad-volume-type",
+		Target:  &i.config.volumeType,
+		Usage:   "volume type",
+		Default: "",
+	})
+
+	set.StringVar(&flag.StringVar{
+		Name:    "nomad-volume-host-source",
+		Target:  &i.config.volumeHostSource,
+		Usage:   "volume source name",
+		Default: "",
 	})
 }
 
