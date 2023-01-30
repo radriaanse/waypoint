@@ -31,7 +31,7 @@
     "@ember/test-helpers": "^2.6.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.0.4",
-    "@hashicorp/pds-ember": "^0.6.3",
+    "@hashicorp/pds-ember": "^2.4.0",
     "@percy/cli": "^1.10.2",
     "@percy/ember": "^4.0.0",
     "@types/codemirror": "^5.60.2",
