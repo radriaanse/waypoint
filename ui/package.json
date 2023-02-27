@@ -93,7 +93,7 @@
     "ember-router-service-refresh-polyfill": "^0.1.0",
     "ember-set-helper": "^2.0.1",
     "ember-simple-auth": "^4.2.2",
-    "ember-source": "~3.28.10",
+    "ember-source": "~4.11.0",
     "ember-template-lint": "^3.15.0",
     "ember-test-selectors": "^6.0.0",
     "ember-toggle": "^9.0.3",
