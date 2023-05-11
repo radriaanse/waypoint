@@ -65,7 +65,7 @@ require (
 	github.com/hashicorp/go-secure-stdlib/awsutil v0.1.6
 	github.com/hashicorp/go-uuid v1.0.2
 	github.com/hashicorp/go-version v1.6.0
-	github.com/hashicorp/hcl/v2 v2.10.1-0.20210621220818-327f3ce2570e
+	github.com/hashicorp/hcl/v2 v2.16.2
 	github.com/hashicorp/hcp-sdk-go v0.27.0
 	github.com/hashicorp/horizon v0.0.0-20210317214650-d2053943be04
 	github.com/hashicorp/nomad/api v0.0.0-20220510192829-894c2e61dd03
@@ -104,7 +104,7 @@ require (
 	github.com/slack-go/slack v0.6.5
 	github.com/stretchr/testify v1.8.1
 	github.com/vektra/mockery/v2 v2.15.0
-	github.com/zclconf/go-cty v1.8.4
+	github.com/zclconf/go-cty v1.12.1
 	github.com/zclconf/go-cty-yaml v1.0.2
 	go.etcd.io/bbolt v1.3.6
 	go.opencensus.io v0.24.0
